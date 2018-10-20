@@ -162,6 +162,8 @@ public class PracticeChooseController implements Initializable {
     }
 
     public void onBackClick(ActionEvent e) throws IOException {
+        _userDatabase.closeSession();
+        _userDatabase.clearCustomNames();
         _userDatabase.resetCurrentlySelectedList();
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }

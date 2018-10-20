@@ -3,6 +3,8 @@ package A3.NameSayer.Frontend.Controllers;
 import A3.NameSayer.Backend.Audio.Audio;
 import A3.NameSayer.Backend.Audio.AudioCompareWorker;
 import A3.NameSayer.Backend.Databases.UserDatabase;
+import A3.NameSayer.Backend.Items.CustomName;
+import A3.NameSayer.Backend.Items.DatabaseName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -38,7 +40,7 @@ public class PracticeQueryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        label.setText(_userDatabase.getNameOfCurrentName());
+        label.setText(_userDatabase.getCurrentCustomName().getName());
     }
 
     public void onKeepClick() {
@@ -54,7 +56,8 @@ public class PracticeQueryController implements Initializable {
         } else {
             compareButton.setText("Stop Comparing");
             Audio audioUtil = new Audio();
-            audioUtil.compareRecordings(_userDatabase.getListOfCurrentName(), _userDatabase.getCurrentRecordingPath(), compareButton);
+            CustomName currentName = _userDatabase.getCurrentCustomName();
+            audioUtil.compareRecordings(currentName.getListOfNames(), currentName.startNewAttempt(), compareButton);
         }
 
     }

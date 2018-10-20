@@ -1,6 +1,9 @@
 package A3.NameSayer.Frontend.Controllers;
 
 import A3.NameSayer.Backend.Audio.Audio;
+import A3.NameSayer.Backend.Databases.UserDatabase;
+import A3.NameSayer.Backend.Items.Attempt;
+import A3.NameSayer.Backend.Items.CustomName;
 import A3.NameSayer.Backend.Items.DatabaseName;
 import A3.NameSayer.Backend.Items.DatabaseNameProperties;
 import A3.NameSayer.Backend.Audio.AudioPlayMultipleNameWorker;
@@ -31,10 +34,10 @@ public class DatabaseController implements Initializable {
     private TableView<DatabaseNameProperties> DatabaseTable;
 
     @FXML
-    private JFXListView<String> UserTable;
+    private JFXListView<CustomName> UserTable;
 
     @FXML
-    private JFXListView<String> UserAttemptsTable;
+    private JFXListView<Attempt> UserAttemptsTable;
 
 
     @FXML
@@ -72,6 +75,7 @@ public class DatabaseController implements Initializable {
 
 
     private Database _database = Database.getInstance();
+    private UserDatabase _userDatabase = UserDatabase.getInstance();
     private Process _currentProcess = AudioPlayMultipleNameWorker.pb;
     private DatabaseNameProperties _currentDatabaseName;
 
@@ -81,12 +85,48 @@ public class DatabaseController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadDatabaseTable();
-        loadUserTable();
+        loadUserList();
         bindDatabaseButtons();
         initialiseTabPane();
     }
 
-    private void loadUserTable() {
+    private void loadUserList() {
+        UserTable.itemsProperty().setValue(_userDatabase.getCustomNamesWithAttempts());
+
+        UserTable.setCellFactory(lv -> new ListCell<CustomName>() {
+            @Override
+            public void updateItem(CustomName item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(item.getName());
+                }
+            }
+        });
+
+        UserTable.getSelectionModel().selectedItemProperty().addListener((ob, oldVal, newVal) -> {
+            if (newVal == null) {
+                _userDatabase.setCurrentName(oldVal);
+            } else {
+                _userDatabase.setCurrentName(newVal);
+            }
+
+            UserAttemptsTable.itemsProperty().setValue(_userDatabase.getCurrentCustomName().getListOfAttempts());
+            UserAttemptsTable.setCellFactory(lv -> new ListCell<Attempt>() {
+                @Override
+                public void updateItem(Attempt item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setText(null);
+                    } else {
+                        setText(item.getAttemptName());
+                    }
+                }
+            });
+        });
+
+
     }
 
 
@@ -177,7 +217,6 @@ public class DatabaseController implements Initializable {
     public void handleClickUserTable() {
         listenButton2.setDisable(false);
         deleteButton.setDisable(false);
-        loadTable();
     }
 
     public void handleClickAttemptsTable() {

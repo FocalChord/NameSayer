@@ -103,7 +103,7 @@ public class PracticeModeController implements Initializable {
             } else {
                 _userDatabase.setCurrentName(newValue);
             }
-            attemptsList.itemsProperty().setValue(_userDatabase.getAttemptsOfCurrentName());
+            attemptsList.itemsProperty().setValue(_userDatabase.getCurrentCustomName().getListOfAttempts());
             attemptsList.setCellFactory(lv -> new ListCell<Attempt>() {
                 @Override
                 public void updateItem(Attempt item, boolean empty) {
@@ -133,15 +133,17 @@ public class PracticeModeController implements Initializable {
     }
 
     public void onMainMenuClick(ActionEvent e) throws IOException {
+        _userDatabase.closeSession();
+        _userDatabase.clearCustomNames();
         _userDatabase.resetCurrentlySelectedList();
         closeProcess();
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
     public void onBackClick(ActionEvent e) throws IOException {
+        _userDatabase.clearCustomNames();
         closeProcess();
         SwitchScenes.getInstance().switchScene(SwitchTo.PRACTICECHOOSE, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
-
     }
 
     public void onListenClick() {
@@ -162,14 +164,13 @@ public class PracticeModeController implements Initializable {
                     databaseNamePlaying = false;
                     attemptPlaying = true;
                     listenButton.setText("Stop");
-                    audioUtil.playAttempt(_userDatabase.getCurrentAttemptPath(), listenButton);
+                    audioUtil.playAttempt(_userDatabase.getCurrentAttempt().getAttemptPath(), listenButton);
                 }
             } else {
                 databaseNamePlaying = true;
                 attemptPlaying = false;
                 listenButton.setText("Stop");
-                List<DatabaseName> databaseNames;
-                databaseNames = _userDatabase.getListOfCurrentName();
+                List<DatabaseName> databaseNames = _userDatabase.getCurrentCustomName().getListOfNames();
                 audioUtil.playAudio(databaseNames, listenButton);
             }
         }

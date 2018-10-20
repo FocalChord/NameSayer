@@ -100,6 +100,10 @@ public class CustomName implements Serializable {
         return _recordingPath;
     }
 
+    public boolean noAttempts() {
+        return (_listOfAttempts.get(0).getAttemptName().equals(UserDatabase.NO_ATTEMPTS));
+    }
+
 
 
 }

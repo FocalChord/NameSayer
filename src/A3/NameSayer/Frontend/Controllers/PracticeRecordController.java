@@ -65,7 +65,7 @@ public class PracticeRecordController implements Initializable {
                 recordButton.setText("Stop");
                 backButton.setDisable(true);
                 Audio audioUtil = new Audio();
-                audioUtil.recordAudio(_userDatabase.getCurrentRecordingPath());
+                audioUtil.recordAudio(_userDatabase.getCurrentCustomName().startNewAttempt());
                 startProgressBar(e);
             }
 
@@ -103,7 +103,7 @@ public class PracticeRecordController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        label.setText(_userDatabase.getNameOfCurrentName());
+        label.setText(_userDatabase.getCurrentCustomName().getName());
     }
 }
 

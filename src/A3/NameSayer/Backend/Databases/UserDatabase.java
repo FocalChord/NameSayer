@@ -23,6 +23,7 @@ public class UserDatabase {
     private ObservableList<CustomName> _currentlySelectedNames = FXCollections.observableArrayList();
 
     private Map<String, CustomName> _allCustomNames = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private ObservableList<CustomName> _allCustomNamesList = FXCollections.observableArrayList();
 
     private CustomName _selectedCustomName;
     private Attempt _selectedAttempt;
@@ -43,6 +44,37 @@ public class UserDatabase {
         return _userDatabase;
     }
 
+
+
+    public CustomName getCurrentCustomName() {
+        return _selectedCustomName;
+    }
+
+    public Attempt getCurrentAttempt() { return _selectedAttempt; }
+
+    public ObservableList<ColorItem> getCurrentlySelectedList() {
+        return _currentlySelectedColorItems;
+    }
+
+    public ObservableList<CustomName> getCurrentCustomNames() {
+        return _currentlySelectedNames;
+    }
+
+    public ObservableList<CustomName> getCustomNamesWithAttempts() {
+        return _allCustomNamesList;
+    }
+
+    public void closeSession() {
+        Map<String, CustomName> tempMap = _allCustomNames.entrySet().stream()
+                .filter(e -> !e.getValue().noAttempts())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        _allCustomNames = tempMap;
+
+        ArrayList<CustomName> allVals = new ArrayList<>(_allCustomNames.values());
+        _allCustomNamesList = FXCollections.observableArrayList(allVals);
+    }
+
     public void setCurrentName(CustomName customName) {
         _selectedCustomName = customName;
     }
@@ -51,36 +83,8 @@ public class UserDatabase {
         _selectedAttempt = attempt;
     }
 
-    public List<DatabaseName> getListOfCurrentName() {
-        return _selectedCustomName.getListOfNames();
-    }
-
-    public ObservableList<Attempt> getAttemptsOfCurrentName() {
-        return _selectedCustomName.getListOfAttempts();
-    }
-
-    public String getNameOfCurrentName() {
-        return _selectedCustomName.getName();
-    }
-
-    public String getCurrentRecordingPath() {
-        return _selectedCustomName.startNewAttempt();
-    }
-
-    public CustomName getCurrentCustomName() {
-        return _selectedCustomName;
-    }
-
-    public String getCurrentAttemptPath() {
-        return _selectedAttempt.getAttemptPath();
-    }
-
     public void updateCurrentlySelectedList(ObservableList<ColorItem> currentlySelectedColorItems) {
         _currentlySelectedColorItems = currentlySelectedColorItems;
-    }
-
-    public ObservableList<ColorItem> getCurrentlySelectedList() {
-        return _currentlySelectedColorItems;
     }
 
     public void resetCurrentlySelectedList() {
@@ -101,19 +105,16 @@ public class UserDatabase {
                 _currentlySelectedNames.add(tempCustomNameObj);
             } else {
                 tempCustomNameObj = new CustomName(name);
-                tempCustomNameObj.debug();
                 _allCustomNames.put(name, tempCustomNameObj);
                 _currentlySelectedNames.add(tempCustomNameObj);
             }
         }
 
-
-
-
-
+        System.out.println(_allCustomNames);
     }
 
-    public ObservableList<CustomName> getCurrentCustomNames() {
-        return _currentlySelectedNames;
+    public void clearCustomNames() {
+        _currentlySelectedNames.clear();
+
     }
 }
