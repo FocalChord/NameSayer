@@ -1,0 +1,42 @@
+.myDialog{
+        -fx-background-color:  #808e9b;
+}
+.myDialog > *.button-bar > *.container{
+    -fx-background-color: #808e9b;
+}
+.myDialog > *.label.content{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #d8caca;
+}
+.myDialog:header *.header-panel{
+    -fx-background-color:  #34495e;
+}
+.myDialog:header *.header-panel *.label{
+    -fx-font-size: 20px;
+    -fx-text-fill: #d8caca;
+}
+.dialog-pane .button{
+    -fx-text-fill:#ebd4d4;
+    -fx-background-color: #485460;
+    -fx-effect: dropshadow( three-pass-box, black, 10.0, 0.0, 0.0, 0.0)
+}
+
+.dialog-pane .button:hover{
+    -fx-background-color:#bdc3c7;
+    -fx-text-fill:black;
+    -fx-font-weight:bold;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:pressed{
+    -fx-font-size:12;
+    -fx-text-fill:#ebd4d4;
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+    -fx-text-fill:black;
+}
+
+.myDialog > *.label.content{
+    -fx-text-fill:black;
+}

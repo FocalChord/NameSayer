@@ -1,0 +1,67 @@
+.button:hover{
+    -fx-background-color:#bdc3c7;
+    -fx-text-fill:black;
+    -fx-cursor: hand;
+}
+
+.button:pressed{
+    -fx-font-size:42;
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+    -fx-text-fill:black;
+    -fx-font-weight:bold;
+
+}
+
+.button{
+    -fx-text-fill:#ebd4d4;
+    -fx-background-color: #485460;
+    -fx-font-size:42;
+    -fx-font-family:"Yu Gothic Light";
+    -fx-effect: dropshadow( three-pass-box, black, 20.0, 0.0, 0.0, 0.0)
+}
+
+#tabpane
+{
+    -fx-tab-min-height: 5em;
+    -fx-tab-max-height: 5em;
+
+    -fx-tab-min-width: 0.5em;
+    -fx-tab-max-width: 0.5em;
+}
+.tab .tab-label
+{
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+.tab{
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 30;
+}
+.tab:selected{
+    -fx-background-color: #FAFCFB;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #3FE387;
+}
+.tab:focused{
+    -fx-focus-color: transparent;
+}
+
+.tab-pane *.tab-header-background{
+    -fx-background-color: transparent;
+}
+.tab-pane:top *.tab-pane-area
+{
+    -fx-background-insets: 0, 0 0 10;
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+}
+
+.tab:selected.focus-indicator
+{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}

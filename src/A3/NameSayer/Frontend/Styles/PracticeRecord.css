@@ -1,0 +1,24 @@
+.button:hover{
+    -fx-background-color:#bdc3c7;
+    -fx-text-fill:black;
+    -fx-cursor: hand;
+
+}
+
+.button:pressed{
+    -fx-font-size:18;
+    -fx-text-fill:#ebd4d4;
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+    -fx-text-fill:black;
+
+}
+
+.button{
+    -fx-text-fill:#ebd4d4;
+    -fx-font-size:18;
+    -fx-font-family:"Yu Gothic Light";
+    -fx-background-color: #485460;
+    -fx-effect: dropshadow( three-pass-box, black, 15.0, 0.0, 0.0, 0.0)
+}
+

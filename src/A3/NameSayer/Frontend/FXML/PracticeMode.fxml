@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/PracticeMode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.PracticeModeController">
+    <top>
+        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #34495e;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Practice" textFill="#d8caca">
+                    <font>
+                        <Font name="Cambria" size="72.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+    <right>
+        <VBox alignment="TOP_CENTER" prefHeight="668.0" prefWidth="789.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="listenButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onListenClick" prefHeight="75.0" prefWidth="400.0" text="Listen" textFill="#ebd4d4">
+                    <font>
+                        <Font name="Yu Gothic Light" size="10.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="recordButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRecordClick" prefHeight="75.0" prefWidth="400.0" text="Practice" textFill="#ebd4d4">
+                    <font>
+                        <Font name="Yu Gothic Light" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                </Button>
+            <Button fx:id="randomiseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRandomClick" prefHeight="75.0" prefWidth="400.0" text="Randomise" textFill="#ebd4d4">
+               <font>
+                  <Font name="Yu Gothic Light" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="mainMenuButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMainMenuClick" prefHeight="75.0" prefWidth="400.0" text="Main Menu" textFill="#ebd4d4">
+               <font>
+                  <Font name="Yu Gothic Light" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Button>
+                <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBackClick" prefHeight="75.0" prefWidth="400.0" text="Back" textFill="#ebd4d4">
+                    <font>
+                        <Font name="Yu Gothic Light" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </right>
+   <left>
+      <GridPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="751.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Selected Names">
+               <font>
+                  <Font name="Cambria" size="31.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="670.0" left="90.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Recordings" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Cambria" size="31.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="670.0" left="100.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXListView fx:id="namePracticeList" onMouseClicked="#handleClickListView" style="-fx-background-color: #d2dae2;" />
+            <JFXListView fx:id="attemptsList" style="-fx-background-color: #d2dae2;" GridPane.columnIndex="2" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </left>
+</BorderPane>

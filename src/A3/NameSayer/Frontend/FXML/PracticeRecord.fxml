@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="700.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/PracticeRecord.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.PracticeRecordController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #34495e#34495e;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="label" text="Record" textFill="#d8caca">
+               <font>
+                  <Font name="Cambria" size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="recordButton" mnemonicParsing="false" onAction="#buttonClick" prefHeight="120.0" prefWidth="300.0" text="Start Recording" textFill="#ebd4d4">
+               <font>
+                  <Font name="Yu Gothic Light" />
+               </font>
+               <VBox.margin>
+                  <Insets right="100.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="454.0" progress="0.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+      </ProgressBar>
+   </bottom>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonClick" prefHeight="60.0" prefWidth="120.0" text="Back" textFill="#ebd4d4">
+               <font>
+                  <Font name="Yu Gothic Light" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="35.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
