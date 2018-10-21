@@ -21,6 +21,7 @@ public class AudioRecordWorker extends Task<Integer> {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
             pb.waitFor();
             String trimCommand = String.format("ffmpeg -y -hide_banner -i  " + "'" + _recordingPath + "'" + " -af silenceremove=0:0:0:1:5:-48dB " + "'"+ _recordingPath + "'");
+            System.out.println(trimCommand);
             Process trimProcess = new ProcessBuilder("bash", "-c", trimCommand).start();
             return trimProcess.waitFor();
         } catch (IOException e) {
