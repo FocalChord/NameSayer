@@ -119,6 +119,11 @@ public class PracticeChooseController implements Initializable {
     }
 
     public void onDeleteClick() {
+
+        if (listViewSelect.getSelectionModel().getSelectedItem() == null) {
+            return;
+        }
+
         ColorItem item = listViewSelect.getSelectionModel().getSelectedItem();
 
         int index = 0;

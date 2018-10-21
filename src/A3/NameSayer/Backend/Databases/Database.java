@@ -30,6 +30,7 @@ public class Database {
     private List<DatabaseName> _databaseNameList = FXCollections.observableArrayList();
     private ObservableList<DatabaseNameProperties> _tableList = FXCollections.observableArrayList();
     private Map<String, Integer> _duplicateCheck = new HashMap<>();
+    private Map<String, List<DatabaseName>> _duplicateRecordings = new HashMap<>();
 
     private DatabaseNameProperties _currentlySelectedName = null;
 
@@ -163,23 +164,42 @@ public class Database {
             String name = extractName(f);
             String path = f.getAbsolutePath();
 
+            List<DatabaseName> tempList = new ArrayList<>();
+
             if (!_duplicateCheck.containsKey(extractName(f))) {
+                DatabaseName db = new DatabaseName(name, path);
+                tempList.add(db);
                 _duplicateCheck.put(name, 1);
-                _databaseNameList.add(new DatabaseName(name, path));
-
+                _duplicateRecordings.put(name, tempList);
+                _databaseNameList.add(db);
             } else {
-                    // Dirty fix for duplicate names such as "Li"
-                    String duplicateName = String.format("%s (%s)", extractName(f), _duplicateCheck.get(name));
-                    _duplicateCheck.put(name, _duplicateCheck.get(name)+ 1);
-                    _databaseNameList.add(new DatabaseName(duplicateName, path));
+                String duplicateName = String.format("%s (%s)", extractName(f), _duplicateCheck.get(name));
+                DatabaseName db = new DatabaseName(duplicateName, path);
+                _duplicateCheck.put(name, _duplicateCheck.get(name) + 1);
+
+                List<DatabaseName> temp = _duplicateRecordings.get(name);
+                temp.add(db);
+
+                _duplicateRecordings.put(name, temp);
+                _databaseNameList.add(db);
             }
-
-
         }
-
 
         readFromRatingFile();
         filterAndSort();
+        addDuplicatesToName();
+    }
+
+    private void addDuplicatesToName() {
+        Map<String, List<DatabaseName>> temp = _duplicateRecordings.entrySet()
+                .stream()
+                .filter(e -> e.getValue().size() > 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        for (String s : temp.keySet()) {
+            DatabaseName db = getDatabaseObj(s);
+            db.addDuplicateList(temp.get(s));
+        }
     }
 
     private void initialiseTableList() {

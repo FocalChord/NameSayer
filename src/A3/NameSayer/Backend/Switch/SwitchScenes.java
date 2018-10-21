@@ -1,11 +1,14 @@
 package A3.NameSayer.Backend.Switch;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -32,7 +35,7 @@ public class SwitchScenes {
     // This switches scene to the required scene, width and height are required depending if you switch to smaller stage
     // or smaller stage.
 
-    public void switchScene(SwitchTo sceneE, ActionEvent e,int width,int height) throws IOException {
+    public void switchScene(SwitchTo sceneE, ActionEvent e, int width, int height) throws IOException {
         FXMLLoader loader = sceneE.getLoader();
         Parent sParent = loader.load();
         Scene sScene = new Scene(sParent, width, height);

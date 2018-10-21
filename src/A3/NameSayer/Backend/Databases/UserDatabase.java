@@ -249,6 +249,8 @@ public class UserDatabase {
             return;
         }
 
+        System.out.println(temp);
+
         for (CustomNameSerializable cns : temp) {
             CustomName tempObj = new CustomName(cns);
             _allCustomNames.put(tempObj.getName(), tempObj);

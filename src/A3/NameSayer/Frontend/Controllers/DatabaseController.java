@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 
 import java.io.IOException;
@@ -157,6 +158,11 @@ public class DatabaseController implements Initializable {
                 Bindings.isEmpty(UserTable.getSelectionModel().getSelectedItems()),
                 Bindings.isEmpty(UserAttemptsTable.getSelectionModel().getSelectedItems())
         ));
+
+        deleteButton.disableProperty().bind(Bindings.and(
+                Bindings.isEmpty(UserTable.getSelectionModel().getSelectedItems()),
+                Bindings.isEmpty(UserAttemptsTable.getSelectionModel().getSelectedItems())
+        ));
     }
 
     private void initialiseTabPane() {
@@ -166,18 +172,11 @@ public class DatabaseController implements Initializable {
                         DatabaseTable.getSelectionModel().clearSelection();
 
                     }
-                    //deleteButton.setDisable(true);
-                    //listenButton2.setDisable(true);
-                    //UserTable.getSelectionModel().clearSelection();
-                    //UserAttemptsTable.getSelectionModel().clearSelection();
+
                 }
         );
     }
 
-
-    private void loadTable() {
-
-    }
 
 
     private void closeProcess() {
@@ -249,10 +248,8 @@ public class DatabaseController implements Initializable {
     public void onDeleteClick() {
         if (UserAttemptsTable.getSelectionModel().isSelected(UserAttemptsTable.getSelectionModel().getSelectedIndex())) {
             showDeleteAlert(DELETE_ATTEMPT);
-            // Delete Attempt
         } else {
             showDeleteAlert(DELETE_NAME);
-            // Delete User Attempts
         }
 
     }

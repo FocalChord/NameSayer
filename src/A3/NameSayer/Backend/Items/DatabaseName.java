@@ -16,28 +16,38 @@ public class DatabaseName implements Serializable {
     private Rating _previousRating;
     private Rating _currentRating;
 
+    private List<DatabaseName> _duplicateList;
+    private boolean _hasDuplicate;
+
     public DatabaseName(String name, String filePath) {
         _name = name;
         _filePath = filePath;
         _currentRating = Rating.NO_RATING;
+        _hasDuplicate = false;
     }
 
-    public DatabaseName() {
-
+    public void addDuplicateList(List<DatabaseName> dbNameList) {
+        _duplicateList = dbNameList;
+        _hasDuplicate = true;
     }
+
 
     public String getName() {
         return _name;
     }
 
     public String getPathToRecording() {
-        return _filePath;
-    }
 
-    public ArrayList<String> getListOfRecording() {
-        ArrayList<String> out = new ArrayList<>();
-        out.add(_name);
-        return out;
+        if (_hasDuplicate) {
+            for (DatabaseName db : _duplicateList) {
+                if (db.getStringRating(true).equals(Database.GOOD_RATING)) {
+                    return db._filePath;
+                }
+            }
+        }
+
+
+        return _filePath;
     }
 
     public String getStringRating(boolean current) {
@@ -53,10 +63,6 @@ public class DatabaseName implements Serializable {
             default:
                 return "";
         }
-    }
-
-    public Rating getCurrentRating() {
-        return _currentRating;
     }
 
     public void setRating(Rating rating) {
