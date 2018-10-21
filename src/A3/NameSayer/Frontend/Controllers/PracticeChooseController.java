@@ -116,7 +116,7 @@ public class PracticeChooseController implements Initializable {
     }
 
     public void onDeleteClick() throws IOException{
-        
+
     }
 
     public void onUploadClick() throws IOException {
