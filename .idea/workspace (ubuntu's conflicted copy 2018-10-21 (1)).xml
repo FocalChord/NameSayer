@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93014fc8-c894-452f-8815-7a35566eef8d" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/NewBackend$Main.coverage" NAME="Main Coverage Results" MODIFIED="1539557622681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>A3.NameSayer.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-457038794">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="23" />
+          <entry key="fxml" value="338" />
+          <entry key="java" value="11773" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="11773" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="XML" value="338" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="fxml" value="10" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="100" />
+          <entry key="ser" value="4" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="100" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="XML" value="10" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UserDatabase.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#updateCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+                <element signature="method#resetCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+                <element signature="method#makeCustomNames#0;class#UserDatabase#0" expanded="false" />
+                <element signature="method#saveMap#0;class#UserDatabase#0" expanded="false" />
+                <element signature="method#openMap#0;class#UserDatabase#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/DatabaseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5359">
+              <caret line="295" column="37" lean-forward="false" selection-start-line="295" selection-start-column="37" selection-end-line="295" selection-end-column="37" />
+              <folding>
+                <element signature="e#7514#7515#0" expanded="true" />
+                <element signature="e#7547#7548#0" expanded="true" />
+                <element signature="method#closeUserProcess#0;class#DatabaseController#0" expanded="false" />
+                <element signature="method#showRatingAlert#0;class#DatabaseController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="828">
+              <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomName.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomName.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1518">
+              <caret line="123" column="28" lean-forward="false" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#makeCustomNameDirectory#0;class#CustomName#0" expanded="false" />
+                <element signature="method#splitCustomName#0;class#CustomName#0" expanded="false" />
+                <element signature="method#initializeAttemptList#0;class#CustomName#0" expanded="false" />
+                <element signature="method#deleteCurrentAttempt#0;class#CustomName#0" expanded="false" />
+                <element signature="method#keepCurrentAttempt#0;class#CustomName#0" expanded="false" />
+                <element signature="method#startNewAttempt#0;class#CustomName#0" expanded="false" />
+                <element signature="e#3419#3420#0" expanded="true" />
+                <element signature="e#3454#3455#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>t</find>
+      <find>disable</find>
+      <find>S</find>
+      <find>System.out.println</find>
+      <find>System.</find>
+      <find>System.out.print</find>
+      <find>System.ou</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/A3/NameSayer</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="HierarchyBrowserManager">
+    <option name="SORT_ALPHABETICALLY" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Utility.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/RatingSystem/Rating.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/RatingDatabase.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/RatingSystem/TextFileRW.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/DatabaseNameProperties.java" />
+        <option value="$PROJECT_DIR$/Good Quality Recordings.txt" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Audio.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/DatabaseName.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/AudioPlayWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/UDatabase.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/FXML/Database.fxml" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/ColorItem.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/AudioPlayWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/FXML/PracticeChoose.fxml" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/FXML/PracticeMode.fxml" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/Audio.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/FXML/PracticeQuery.fxml" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioCompareWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeQueryController.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/MainMenuController.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/Attempt.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/DatabaseName.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomNameSerializable.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioRecordWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayAttemptWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayMultipleNameWorker.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Switch/SwitchScenes.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeModeController.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeRecordController.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeChooseController.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/Database.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Main.java" />
+        <option value="$PROJECT_DIR$/.namesayer.ser" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomName.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java" />
+        <option value="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/DatabaseController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="Databases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameSayer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameSayer" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NameSayer" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="UserDat&#9;FILE&#9;file:///home/nisa/Dropbox/Engineering/2018/SecondSem/SOFTENG206/Assignments/NewBackend/src/A3/NameSayer/Backend/Databases/UserDatabase.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540096272281" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="A3.NameSayer.Frontend.Controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/A3/NameSayer/Frontend/FXML" />
+      <recent name="$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio" />
+      <recent name="$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HEIGHT" value="0" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="A3.NameSayer.Main" />
+      <module name="NewBackend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="A3.NameSayer.Backend.Audio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93014fc8-c894-452f-8815-7a35566eef8d" name="Default" comment="" />
+      <created>1539552954356</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539552954356</updated>
+      <workItem from="1539552958425" duration="3018000" />
+      <workItem from="1539562609549" duration="1439000" />
+      <workItem from="1539567223518" duration="1081000" />
+      <workItem from="1539751416787" duration="711000" />
+      <workItem from="1539752240473" duration="8928000" />
+      <workItem from="1539841559091" duration="7592000" />
+      <workItem from="1539882477164" duration="1379000" />
+      <workItem from="1539883987739" duration="797000" />
+      <workItem from="1539884886222" duration="2886000" />
+      <workItem from="1539982809291" duration="51000" />
+      <workItem from="1539994053243" duration="737000" />
+      <workItem from="1540006260485" duration="5034000" />
+      <workItem from="1540020627384" duration="13178000" />
+      <workItem from="1540033904688" duration="4306000" />
+      <workItem from="1540038483014" duration="353000" />
+      <workItem from="1540040049333" duration="1311000" />
+      <workItem from="1540062843425" duration="2237000" />
+      <workItem from="1540065986819" duration="2600000" />
+      <workItem from="1540073387426" duration="7922000" />
+      <workItem from="1540092059604" duration="1643000" />
+      <workItem from="1540093881421" duration="1338000" />
+      <workItem from="1540095892234" duration="116000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="68657000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25579977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#resetCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#makeCustomNames#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#saveMap#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#openMap#0;class#UserDatabase#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5359">
+          <caret line="295" column="37" lean-forward="false" selection-start-line="295" selection-start-column="37" selection-end-line="295" selection-end-column="37" />
+          <folding>
+            <element signature="e#7514#7515#0" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+            <element signature="method#closeUserProcess#0;class#DatabaseController#0" expanded="false" />
+            <element signature="method#showRatingAlert#0;class#DatabaseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="123" column="28" lean-forward="false" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeCustomNameDirectory#0;class#CustomName#0" expanded="false" />
+            <element signature="method#splitCustomName#0;class#CustomName#0" expanded="false" />
+            <element signature="method#initializeAttemptList#0;class#CustomName#0" expanded="false" />
+            <element signature="method#deleteCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#keepCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#startNewAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="e#3419#3420#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#resetCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#makeCustomNames#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#saveMap#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#openMap#0;class#UserDatabase#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5750">
+          <caret line="277" column="54" lean-forward="true" selection-start-line="277" selection-start-column="54" selection-end-line="277" selection-end-column="54" />
+          <folding>
+            <element signature="e#7514#7515#0" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+            <element signature="method#closeUserProcess#0;class#DatabaseController#0" expanded="false" />
+            <element signature="method#showRatingAlert#0;class#DatabaseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.namesayer.ser">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeCustomNameDirectory#0;class#CustomName#0" expanded="false" />
+            <element signature="method#splitCustomName#0;class#CustomName#0" expanded="false" />
+            <element signature="method#initializeAttemptList#0;class#CustomName#0" expanded="false" />
+            <element signature="method#deleteCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#keepCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#startNewAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="e#3419#3420#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#resetCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#makeCustomNames#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#saveMap#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#openMap#0;class#UserDatabase#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1540091699000" expanded="true" signature="2457:3078" ph="{...}" />
+            <marker date="1540091699000" expanded="true" signature="2526:2782" ph="{...}" />
+            <marker date="1540091699000" expanded="true" signature="3161:3239" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioRecordWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayAttemptWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1540091554000" expanded="false" signature="897:908" ph=" { " />
+            <marker date="1540091554000" expanded="false" signature="934:940" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayMultipleNameWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1540091588000" expanded="false" signature="1696:1707" ph=" { " />
+            <marker date="1540091588000" expanded="false" signature="1733:1739" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Utility.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/PracticeDatabase.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/NameItem.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/util/function/Predicate.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/util/function/Function.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/RatingDatabase.java" />
+    <entry file="file://$PROJECT_DIR$/Good Quality Recordings.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/AudioPlayWorker.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/RatingSystem/Rating.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/RatingSystem/TextFileRW.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/java/jdk1.8.0_181/src.zip!/java/util/function/Predicate.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Namess.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/ColorItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/DatabaseNameProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/Audio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="31" column="45" lean-forward="false" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioCompareWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="50" column="10" lean-forward="false" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeQueryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="68" lean-forward="false" selection-start-line="42" selection-start-column="68" selection-end-line="42" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#closeStage#0;class#PracticeQueryController#0" expanded="false" />
+            <element signature="method#closeProcess#0;class#PracticeQueryController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_181/javafx-src.zip!/javafx/collections/ObservableList.java" />
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="56" column="61" lean-forward="false" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/Attempt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/DatabaseName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomNameSerializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayAttemptWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1540091554000" expanded="false" signature="897:908" ph=" { " />
+            <marker date="1540091554000" expanded="false" signature="934:940" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioPlayMultipleNameWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <marker date="1540091588000" expanded="false" signature="1696:1707" ph=" { " />
+            <marker date="1540091588000" expanded="false" signature="1733:1739" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1540091699000" expanded="true" signature="2457:3078" ph="{...}" />
+            <marker date="1540091699000" expanded="true" signature="2526:2782" ph="{...}" />
+            <marker date="1540091699000" expanded="true" signature="3161:3239" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeChooseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="271" column="32" lean-forward="false" selection-start-line="271" selection-start-column="32" selection-end-line="271" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#initialize#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#bindButtons#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#loadListViewDatabase#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#addListenerToTextField#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#parseTextField#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#capitalise#0;class#PracticeChooseController#0" expanded="false" />
+            <element signature="method#showAlert#0;class#PracticeChooseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Switch/SwitchScenes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/PracticeModeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="149" column="52" lean-forward="false" selection-start-line="149" selection-start-column="52" selection-end-line="149" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#onRecordClick#0;class#PracticeModeController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Audio/AudioRecordWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.namesayer.ser">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Items/CustomName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="123" column="28" lean-forward="false" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeCustomNameDirectory#0;class#CustomName#0" expanded="false" />
+            <element signature="method#splitCustomName#0;class#CustomName#0" expanded="false" />
+            <element signature="method#initializeAttemptList#0;class#CustomName#0" expanded="false" />
+            <element signature="method#deleteCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#keepCurrentAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="method#startNewAttempt#0;class#CustomName#0" expanded="false" />
+            <element signature="e#3419#3420#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Frontend/Controllers/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5359">
+          <caret line="295" column="37" lean-forward="false" selection-start-line="295" selection-start-column="37" selection-end-line="295" selection-end-column="37" />
+          <folding>
+            <element signature="e#7514#7515#0" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+            <element signature="method#closeUserProcess#0;class#DatabaseController#0" expanded="false" />
+            <element signature="method#showRatingAlert#0;class#DatabaseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/A3/NameSayer/Backend/Databases/UserDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#resetCurrentlySelectedList#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#makeCustomNames#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#saveMap#0;class#UserDatabase#0" expanded="false" />
+            <element signature="method#openMap#0;class#UserDatabase#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>NewBackend</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jfoenix-8.0.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

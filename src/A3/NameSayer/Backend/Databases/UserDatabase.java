@@ -202,11 +202,38 @@ public class UserDatabase {
     }
 
     public void deleteName() {
-        System.out.println(_allCustomNames);
         _selectedCustomName.deleteName();
-        _allCustomNamesList.removeIf(e -> e.getName().equals(_selectedCustomName.getName()));
-        _allCustomNames.entrySet().removeIf(e -> e.getValue().getName().equals(_selectedCustomName.getName()));
-        System.out.println(_allCustomNames);
+
+        int index = 0;
+
+
+        for (String s : _allCustomNames.keySet()) {
+            if (s.equals(_selectedCustomName.getName())) {
+                _allCustomNames.remove(s);
+                break;
+            }
+        }
+
+
+        for (CustomName s : _allCustomNamesList) {
+            System.out.println(s.getName().equals(_selectedCustomName.getName()));
+            if (s.getName().equals(_selectedCustomName.getName())) {
+                _allCustomNamesList.remove(index);
+                break;
+            }
+
+            index++;
+        }
+
+    }
+
+    public void deleteAttempt() {
+        int size = _selectedCustomName.deleteAttempt(_selectedAttempt);
+
+        if (size == 0) {
+            deleteName();
+        }
+
     }
 
 

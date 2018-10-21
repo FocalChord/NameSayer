@@ -300,11 +300,13 @@ public class DatabaseController implements Initializable {
         alert.showAndWait();
         if (alert.getResult().equals(ButtonType.YES)) {
             if (alertText.equals(DELETE_ATTEMPT)) {
-
+                _userDatabase.deleteAttempt();
+                UserAttemptsTable.refresh();
             }
 
             if (alertText.equals(DELETE_NAME)) {
                 _userDatabase.deleteName();
+                UserTable.refresh();
             }
         }
     }

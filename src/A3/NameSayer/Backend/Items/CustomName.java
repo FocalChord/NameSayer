@@ -7,7 +7,10 @@ import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CustomName implements Serializable {
@@ -117,10 +120,30 @@ public class CustomName implements Serializable {
     }
 
     public boolean noAttempts() {
+        if (_listOfAttempts.size() == 0) {
+            return false;
+        }
+
         return (_listOfAttempts.get(0).getAttemptName().equals(UserDatabase.NO_ATTEMPTS));
     }
 
     public void deleteName() {
+        for (Attempt attempt : _listOfAttempts) {
+            File file = new File(attempt.getAttemptPath());
+            file.delete();
+        }
+
+        _listOfAttempts = FXCollections.observableArrayList();
         _directory.delete();
+    }
+
+    public int deleteAttempt(Attempt attemptToDelete) {
+        File file = new File(attemptToDelete.getAttemptPath());
+        file.delete();
+
+        _listOfAttempts.removeIf(e -> e.getAttemptName().equals(attemptToDelete.getAttemptName()));
+
+        return _listOfAttempts.size();
+
     }
 }
