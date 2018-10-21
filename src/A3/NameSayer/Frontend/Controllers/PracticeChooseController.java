@@ -41,6 +41,9 @@ public class PracticeChooseController implements Initializable {
     private Button addButton;
 
     @FXML
+    private Button deleteButton;
+
+    @FXML
     private ListView<ColorItem> listViewSelect;
 
     @FXML
@@ -110,6 +113,10 @@ public class PracticeChooseController implements Initializable {
         });
 
         addListenerToTextField(_database.getDatabaseNameList());
+    }
+
+    public void onDeleteClick() throws IOException{
+        
     }
 
     public void onUploadClick() throws IOException {
