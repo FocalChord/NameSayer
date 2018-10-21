@@ -69,6 +69,7 @@ public class StatsController implements Initializable {
         if (statList.size() < 1) {
             daysPracticedTile.setText("Practice atleast 1 name to see these stats");
             daysPracticedTile.setTextAlignment(TextAlignment.CENTER);
+            daysPracticedTile.setSkinType(Tile.SkinType.TEXT);
         } else {
             HashMap<String, Integer> storeCount = new HashMap<>();
             storeCount.put(SUNDAY, 0);
@@ -131,6 +132,8 @@ public class StatsController implements Initializable {
             daysPracticedTile.setSkinType(Tile.SkinType.SMOOTHED_CHART);
 
         }
+
+
     }
 
     private void populateLongestNameTile() {
