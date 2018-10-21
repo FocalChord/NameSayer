@@ -17,8 +17,6 @@ public class AudioRecordWorker extends Task<Integer> {
     @Override
     protected Integer call() throws Exception {
         String ffmpegCommand = String.format("ffmpeg -y -f alsa -ac 1 -ar 44100 -i default -t 5 -strict -2 \'%s\'", _recordingPath);
-        System.out.println(ffmpegCommand);
-
         try {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
             pb.waitFor();

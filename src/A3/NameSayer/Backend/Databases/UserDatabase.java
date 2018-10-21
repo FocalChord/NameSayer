@@ -3,13 +3,16 @@ package A3.NameSayer.Backend.Databases;
 import A3.NameSayer.Backend.Items.Attempt;
 import A3.NameSayer.Backend.Items.ColorItem;
 import A3.NameSayer.Backend.Items.CustomName;
-import A3.NameSayer.Backend.Items.DatabaseName;
+import A3.NameSayer.Backend.Items.CustomNameSerializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 
-import java.io.File;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class UserDatabase {
@@ -29,9 +32,9 @@ public class UserDatabase {
     private Attempt _selectedAttempt;
 
 
-
     // Initializing and reading from he database
     private UserDatabase() {
+        initialiseMaps();
 
     }
 
@@ -44,13 +47,21 @@ public class UserDatabase {
         return _userDatabase;
     }
 
+    private void initialiseMaps() {
 
+    }
 
     public CustomName getCurrentCustomName() {
         return _selectedCustomName;
     }
 
-    public Attempt getCurrentAttempt() { return _selectedAttempt; }
+    public Attempt getCurrentAttempt() {
+        return _selectedAttempt;
+    }
+
+    public void setCurrentAttempt(Attempt attempt) {
+        _selectedAttempt = attempt;
+    }
 
     public ObservableList<ColorItem> getCurrentlySelectedList() {
         return _currentlySelectedColorItems;
@@ -77,10 +88,6 @@ public class UserDatabase {
 
     public void setCurrentName(CustomName customName) {
         _selectedCustomName = customName;
-    }
-
-    public void setCurrentAttempt(Attempt attempt) {
-        _selectedAttempt = attempt;
     }
 
     public void updateCurrentlySelectedList(ObservableList<ColorItem> currentlySelectedColorItems) {
@@ -110,11 +117,97 @@ public class UserDatabase {
             }
         }
 
-        System.out.println(_allCustomNames);
     }
 
     public void clearCustomNames() {
         _currentlySelectedNames.clear();
+    }
+
+    public void saveMap() {
+
+        closeSession();
+
+        System.out.println(_allCustomNames.size());
+
+        Map<String, CustomNameSerializable> _serializableCustomNameMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+
+        ArrayList<CustomNameSerializable> cnsList = new ArrayList<>();
+
+        for (String s : _allCustomNames.keySet()) {
+            System.out.println(s);
+
+            CustomName cn = _allCustomNames.get(s);
+
+            CustomNameSerializable cns = new CustomNameSerializable(
+                    cn.getName(),
+                    cn.getDir(),
+                    cn.getListOfNames(),
+                    cn.getALOfAttempts(),
+                    cn.getCurrentAttemptNumber()
+            );
+
+            cnsList.add(cns);
+
+            _serializableCustomNameMap.put(s, cns);
+        }
+
+
+        try {
+            System.out.println("called");
+            FileOutputStream fos = new FileOutputStream(".namesayer.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(cnsList);
+            oos.close();
+            fos.close();
+
+            System.out.println(cnsList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openMap() {
+        //Map<String, CustomNameSerializable> _temp = null;
+        ArrayList<CustomNameSerializable> temp = null;
+
+        File file = new File(".namesayer.ser");
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+            FileInputStream fis = new FileInputStream(".namesayer.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            temp = (ArrayList<CustomNameSerializable>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+
+        for (CustomNameSerializable cns : temp) {
+            CustomName tempObj = new CustomName(cns);
+            _allCustomNames.put(tempObj.getName(), tempObj);
+        }
+
+        ArrayList<CustomName> allVals = new ArrayList<>(_allCustomNames.values());
+        _allCustomNamesList = FXCollections.observableArrayList(allVals);
+
 
     }
+
+    public void deleteName() {
+        System.out.println(_allCustomNames);
+        _selectedCustomName.deleteName();
+        _allCustomNamesList.removeIf(e -> e.getName().equals(_selectedCustomName.getName()));
+        _allCustomNames.entrySet().removeIf(e -> e.getValue().getName().equals(_selectedCustomName.getName()));
+        System.out.println(_allCustomNames);
+    }
+
+
 }

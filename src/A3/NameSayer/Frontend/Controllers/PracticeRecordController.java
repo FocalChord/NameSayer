@@ -53,8 +53,6 @@ public class PracticeRecordController implements Initializable {
                 _countProgress.stop();
                 _currentProcess = AudioRecordWorker.pb;
 
-                System.out.println(_currentProcess);
-
                 if (_currentProcess != null) {
                     _currentProcess.destroy();
                     recordButton.setText("Record");

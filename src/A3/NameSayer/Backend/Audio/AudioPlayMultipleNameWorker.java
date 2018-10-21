@@ -30,13 +30,11 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
                             + "'" + System.getProperty("user.dir")
                             + "/Temp/temp.wav" + "'"
             );
-            System.out.println(trimCommand);
             pb = new ProcessBuilder("bash", "-c", trimCommand).start();
             if (pb.waitFor() != 0) {
                 return 1;
             }
             String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", System.getProperty("user.dir") + "/Temp/temp.wav");
-            System.out.println(ffmpegCommand);
             try {
                 pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
                 if (pb.waitFor() != 0) {

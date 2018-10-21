@@ -104,7 +104,6 @@ public class Database {
         Pattern p = Pattern.compile(": [A-Za-z]+( \\(\\d+\\))?,");
 
         for (String s : list) {
-            System.out.println(s);
             Matcher m1 = p.matcher(s);
             String tempName = "";
             String tempRating = "";

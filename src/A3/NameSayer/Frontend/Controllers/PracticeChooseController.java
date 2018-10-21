@@ -117,7 +117,6 @@ public class PracticeChooseController implements Initializable {
 
         if (file != null) {
             String path = file.getAbsolutePath();
-            System.out.println(path);
             BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
 
             String line = null;

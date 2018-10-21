@@ -19,7 +19,6 @@ public class AudioPlayAttemptWorker extends Task<Integer> {
     @Override
     protected Integer call() throws Exception {
         String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", _attemptPath);
-        System.out.println(ffmpegCommand);
 
         try {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();

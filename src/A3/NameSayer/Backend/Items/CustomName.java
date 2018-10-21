@@ -29,6 +29,14 @@ public class CustomName implements Serializable {
         _currentAttemptNumber = 1;
     }
 
+    public CustomName(CustomNameSerializable obj) {
+        _name = obj.getName();
+        _directory = obj.getDirectory();
+        _listOfNames = obj.getListOfNames();
+        _listOfAttempts = FXCollections.observableArrayList(obj.getListOfAttempts());
+        _currentAttemptNumber = obj.getCurrentAttemptNumber();
+    }
+
     private File makeCustomNameDirectory() {
         String newFolderPath = UserDatabase.PATH_TO_USERS_FOLDER + "/" + _name;
         File dir = new File(newFolderPath);
@@ -65,16 +73,24 @@ public class CustomName implements Serializable {
         return _name;
     }
 
-    public void debug() {
-        _listOfNames.stream().map(e -> e.getPathToRecording()).forEach(System.out::println);
+    public File getDir() {
+        return _directory;
+    }
+
+    public List<DatabaseName> getListOfNames() {
+        return _listOfNames;
     }
 
     public ObservableList<Attempt> getListOfAttempts() {
         return _listOfAttempts;
     }
 
-    public List<DatabaseName> getListOfNames() {
-        return _listOfNames;
+    public List<Attempt> getALOfAttempts() {
+        return new ArrayList<>(_listOfAttempts);
+    }
+
+    public int getCurrentAttemptNumber() {
+        return _currentAttemptNumber;
     }
 
     public void deleteCurrentAttempt() {
@@ -104,6 +120,7 @@ public class CustomName implements Serializable {
         return (_listOfAttempts.get(0).getAttemptName().equals(UserDatabase.NO_ATTEMPTS));
     }
 
-
-
+    public void deleteName() {
+        _directory.delete();
+    }
 }

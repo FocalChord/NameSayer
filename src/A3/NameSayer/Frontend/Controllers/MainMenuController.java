@@ -28,10 +28,7 @@ public class  MainMenuController implements Initializable {
 
     @FXML
     private Button statisticsButton;
-
-
-
-
+    
 
     public void buttonClick(ActionEvent e) throws IOException {
 

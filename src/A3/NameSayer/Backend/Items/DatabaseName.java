@@ -4,9 +4,10 @@ import A3.NameSayer.Backend.Databases.Database;
 import A3.NameSayer.Backend.RatingSystem.Rating;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DatabaseName {
+public class DatabaseName implements Serializable {
 
     private String _name;
     private String _filePath;
@@ -18,6 +19,10 @@ public class DatabaseName {
         _name = extractName(f);
         _filePath = f.getAbsolutePath();
         _currentRating = Rating.NO_RATING;
+    }
+
+    public DatabaseName() {
+
     }
 
     public String getName() {

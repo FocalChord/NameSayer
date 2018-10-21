@@ -37,7 +37,6 @@ public class SwitchScenes {
         Parent sParent = loader.load();
         Scene sScene = new Scene(sParent, width, height);
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        System.out.println(sScene);
         window.setScene(sScene);
         window.show();
     }

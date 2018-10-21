@@ -1,6 +1,8 @@
 package A3.NameSayer.Backend.Items;
 
-public class Attempt {
+import java.io.Serializable;
+
+public class Attempt implements Serializable {
     private String _attemptName;
     private String _pathToAttempt;
 

@@ -51,8 +51,8 @@ public class PracticeModeController implements Initializable {
     private UserDatabase _userDatabase = UserDatabase.getInstance();
     private Process _currentProcess = AudioPlayMultipleNameWorker.pb;
 
-    private boolean databaseNamePlaying = false;
-    private boolean attemptPlaying = false;
+    private boolean _databaseNamePlaying = false;
+    private boolean _attemptPlaying = false;
 
 
     @Override
@@ -148,8 +148,6 @@ public class PracticeModeController implements Initializable {
 
     public void onListenClick() {
         if (listenButton.getText().equals("Stop")) {
-            System.out.println("database playing " + databaseNamePlaying);
-            System.out.println(" attempt playing " + attemptPlaying);
             closeProcess();
         } else {
             Audio audioUtil = new Audio();
@@ -161,14 +159,14 @@ public class PracticeModeController implements Initializable {
                     dialogPane.getStyleClass().add("myDialog");
                     alert.showAndWait();
                 } else {
-                    databaseNamePlaying = false;
-                    attemptPlaying = true;
+                    _databaseNamePlaying = false;
+                    _attemptPlaying = true;
                     listenButton.setText("Stop");
                     audioUtil.playAttempt(_userDatabase.getCurrentAttempt().getAttemptPath(), listenButton);
                 }
             } else {
-                databaseNamePlaying = true;
-                attemptPlaying = false;
+                _databaseNamePlaying = true;
+                _attemptPlaying = false;
                 listenButton.setText("Stop");
                 List<DatabaseName> databaseNames = _userDatabase.getCurrentCustomName().getListOfNames();
                 audioUtil.playAudio(databaseNames, listenButton);
@@ -178,7 +176,7 @@ public class PracticeModeController implements Initializable {
     }
 
     private void closeProcess() {
-        if (databaseNamePlaying) {
+        if (_databaseNamePlaying) {
             _currentProcess = AudioPlayMultipleNameWorker.pb;
         } else {
             _currentProcess = AudioPlayAttemptWorker.pb;
