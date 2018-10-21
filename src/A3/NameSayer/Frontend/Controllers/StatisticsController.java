@@ -40,22 +40,7 @@ public class  StatisticsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        try {
-            br = new BufferedReader(new FileReader("time.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        text = null;
-        try {
-            text = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Long textTime = Long.valueOf(text);
-        textTime = textTime * 60000000000L;
-        long duration = System.nanoTime() + textTime - Main.startTime;
-        String time = String.valueOf(duration / 60000000000L);
-        timeID.setText(time);
+
 
     }
 }

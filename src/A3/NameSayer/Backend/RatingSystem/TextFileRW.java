@@ -1,9 +1,9 @@
 package A3.NameSayer.Backend.RatingSystem;
 
 import A3.NameSayer.Backend.Items.DatabaseName;
+import A3.NameSayer.Main;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -180,7 +180,7 @@ public class TextFileRW {
         file1.renameTo(new File(newName));
     }
 
-    /*public void saveTime() {
+    public void saveTime() {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader("time.txt"));
@@ -203,7 +203,7 @@ public class TextFileRW {
         } catch (IOException e) {
 
         }
-    }*/
+    }
 
 
 }

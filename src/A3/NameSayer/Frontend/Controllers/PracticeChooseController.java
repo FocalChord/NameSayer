@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -71,9 +72,11 @@ public class PracticeChooseController implements Initializable {
 
         // If nothing is selected then disable buttons else enable
         nextButton.disableProperty().bind(Bindings.isEmpty(list));
+        deleteButton.disableProperty().bind(Bindings.isEmpty(list));
     }
 
     private void loadListViewSelect() {
+
 
         listViewSelect.itemsProperty().setValue(_userDatabase.getCurrentlySelectedList());
 
@@ -115,7 +118,19 @@ public class PracticeChooseController implements Initializable {
         addListenerToTextField(_database.getDatabaseNameList());
     }
 
-    public void onDeleteClick() throws IOException{
+    public void onDeleteClick() {
+        ColorItem item = listViewSelect.getSelectionModel().getSelectedItem();
+
+        int index = 0;
+
+        for (ColorItem c : listViewSelect.getItems()) {
+            if (c.getText().equals(item.getText())) {
+                listViewSelect.getItems().remove(index);
+                break;
+            }
+
+            index++;
+        }
 
     }
 

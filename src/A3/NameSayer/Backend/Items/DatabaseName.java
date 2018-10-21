@@ -6,6 +6,7 @@ import A3.NameSayer.Backend.RatingSystem.Rating;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseName implements Serializable {
 
@@ -15,9 +16,9 @@ public class DatabaseName implements Serializable {
     private Rating _previousRating;
     private Rating _currentRating;
 
-    public DatabaseName(File f) {
-        _name = extractName(f);
-        _filePath = f.getAbsolutePath();
+    public DatabaseName(String name, String filePath) {
+        _name = name;
+        _filePath = filePath;
         _currentRating = Rating.NO_RATING;
     }
 
@@ -84,38 +85,7 @@ public class DatabaseName implements Serializable {
         return line;
     }
 
-    private String extractName(File file) {
-        String name = file.getName().substring(0, file.getName().length() - 4); // Remove .wav
-        name = name.substring(findUnderscore(name)); // Extract just the name
 
-
-        // Capitalize first letter
-
-        if (!Character.isUpperCase(name.charAt(0))) {
-            name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        }
-
-
-        return name;
-    }
-
-    private int findUnderscore(String s) {
-        int count = 0;
-        int index = 0;
-        char[] charArr = s.toCharArray();
-
-        for (int i = 0; i < charArr.length; i++) {
-            if (charArr[i] == '_') {
-                count++;
-            }
-
-            if (count == 3) {
-                index = i;
-                break;
-            }
-        }
-        return index + 1;
-    }
 
 
 }

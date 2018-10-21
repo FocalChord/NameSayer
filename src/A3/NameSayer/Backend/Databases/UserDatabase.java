@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 
 public class UserDatabase {
 
+
+
     public static final String PATH_TO_USERS_FOLDER = new File("Databases/test").getAbsolutePath();
     public static final String NO_ATTEMPTS = "No Attempts Yet!";
 
@@ -33,10 +35,7 @@ public class UserDatabase {
 
 
     // Initializing and reading from he database
-    private UserDatabase() {
-        initialiseMaps();
-
-    }
+    private UserDatabase() { }
 
     // Putting the singleton in "singleton"
     public static UserDatabase getInstance() {
@@ -47,33 +46,65 @@ public class UserDatabase {
         return _userDatabase;
     }
 
-    private void initialiseMaps() {
 
-    }
+    /**
+     * This function gets the currently selected name either in database controller or practice mode controller
+     * @return A custom name object which is currently selected in the controller
+     */
 
     public CustomName getCurrentCustomName() {
         return _selectedCustomName;
     }
 
+    /**
+     * This function gets the currently selected attempt either in database controller or practice mode controller
+     * @return An attempt object which is currently selected in either controller
+     */
+
     public Attempt getCurrentAttempt() {
         return _selectedAttempt;
     }
+
+    /**
+     * This function sets the current attempt being selected on the list view in database controller and practice mode
+     * controller
+     * @param attempt
+     */
 
     public void setCurrentAttempt(Attempt attempt) {
         _selectedAttempt = attempt;
     }
 
+    /**
+     * This function returns an observable list of the currently selected coloritems in practice choose controller
+     * @return an observable list of color items
+     */
+
     public ObservableList<ColorItem> getCurrentlySelectedList() {
         return _currentlySelectedColorItems;
     }
+
+    /**
+     * This function returns an observable list of the currently selected custom names in practice mode controller
+     * @return an observable list of custom names
+     */
 
     public ObservableList<CustomName> getCurrentCustomNames() {
         return _currentlySelectedNames;
     }
 
+    /**
+     * This function returns an observable list of the custom names with attempts
+     * @return an observable list of custom names
+     */
+
     public ObservableList<CustomName> getCustomNamesWithAttempts() {
         return _allCustomNamesList;
     }
+
+    /**
+     * This function closes any session by filtering out all the custom names with no attempts
+     */
 
     public void closeSession() {
         Map<String, CustomName> tempMap = _allCustomNames.entrySet().stream()
@@ -86,18 +117,36 @@ public class UserDatabase {
         _allCustomNamesList = FXCollections.observableArrayList(allVals);
     }
 
+    /**
+     * This function sets the current name to the selected custom name
+     * @param customName
+     */
+
     public void setCurrentName(CustomName customName) {
         _selectedCustomName = customName;
     }
+
+    /**
+     * This function constantly refreshes the currently selected color items
+     * @param currentlySelectedColorItems
+     */
 
     public void updateCurrentlySelectedList(ObservableList<ColorItem> currentlySelectedColorItems) {
         _currentlySelectedColorItems = currentlySelectedColorItems;
     }
 
+    /**
+     * This function resets both color item / names list when the main menu button is pressed
+     */
+
     public void resetCurrentlySelectedList() {
         _currentlySelectedColorItems = FXCollections.observableArrayList();
         _currentlySelectedNames = FXCollections.observableArrayList();
     }
+
+    /**
+     * This function makes custom names when the next button is pressed from practice choose -> practice mode
+     */
 
     public void makeCustomNames() {
         List<String> greenNames = _currentlySelectedColorItems.stream()
@@ -119,15 +168,21 @@ public class UserDatabase {
 
     }
 
+    /**
+     * This function clears all the currently selected custom names and reset
+     */
+
     public void clearCustomNames() {
         _currentlySelectedNames.clear();
     }
 
+    /**
+     * This function saves the existing hashmap which contains data of existing custom names
+     */
+
     public void saveMap() {
 
         closeSession();
-
-        System.out.println(_allCustomNames.size());
 
         Map<String, CustomNameSerializable> _serializableCustomNameMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
@@ -166,6 +221,10 @@ public class UserDatabase {
         }
     }
 
+    /**
+     * This function loads the .ser file and updates the hashmap on reload
+     */
+
     public void openMap() {
         //Map<String, CustomNameSerializable> _temp = null;
         ArrayList<CustomNameSerializable> temp = null;
@@ -201,6 +260,10 @@ public class UserDatabase {
 
     }
 
+    /**
+     * This function deletes a name and then removes all attempts
+     */
+
     public void deleteName() {
         _selectedCustomName.deleteName();
 
@@ -226,6 +289,10 @@ public class UserDatabase {
         }
 
     }
+
+    /**
+     * This function deletes an attempt relating to a name
+     */
 
     public void deleteAttempt() {
         int size = _selectedCustomName.deleteAttempt(_selectedAttempt);

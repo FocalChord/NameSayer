@@ -46,6 +46,7 @@ public class Main extends Application {
 
         primaryStage.setOnCloseRequest(e -> {
             UserDatabase.getInstance().saveMap();
+            TextFileRW.getInstance().saveTime();
             Platform.exit();
             System.exit(0);
         });

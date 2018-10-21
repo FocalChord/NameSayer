@@ -29,6 +29,7 @@ public class Database {
 
     private List<DatabaseName> _databaseNameList = FXCollections.observableArrayList();
     private ObservableList<DatabaseNameProperties> _tableList = FXCollections.observableArrayList();
+    private Map<String, Integer> _duplicateCheck = new HashMap<>();
 
     private DatabaseNameProperties _currentlySelectedName = null;
 
@@ -72,7 +73,7 @@ public class Database {
 
     public FilteredList<String> getDatabaseNameList() {
         ObservableList<String> out = FXCollections.observableArrayList();
-        _databaseNameList.stream().map(DatabaseName::getName).forEach(out::add);
+        _databaseNameList.stream().filter(e -> !e.getName().contains("(")).map(DatabaseName::getName).forEach(out::add);
         return new FilteredList<>(out, s -> true);
     }
 
@@ -133,15 +134,6 @@ public class Database {
         }
     }
 
-    private void initialiseDBNameList() {
-        for (File f : fileList) {
-            _databaseNameList.add(new DatabaseName(f));
-        }
-
-        readFromRatingFile();
-        filterAndSort();
-    }
-
     private void readFromRatingFile() {
         File goodTxtFile = new File(TextFileRW.GOOD_TXT_FILE_NAME);
         File badTxtFile = new File(TextFileRW.BAD_TXT_FILE_NAME);
@@ -166,9 +158,66 @@ public class Database {
 
     }
 
+    private void initialiseDBNameList() {
+        for (File f : fileList) {
+            String name = extractName(f);
+            String path = f.getAbsolutePath();
+
+            if (!_duplicateCheck.containsKey(extractName(f))) {
+                _duplicateCheck.put(name, 1);
+                _databaseNameList.add(new DatabaseName(name, path));
+
+            } else {
+                    // Dirty fix for duplicate names such as "Li"
+                    String duplicateName = String.format("%s (%s)", extractName(f), _duplicateCheck.get(name));
+                    _duplicateCheck.put(name, _duplicateCheck.get(name)+ 1);
+                    _databaseNameList.add(new DatabaseName(duplicateName, path));
+            }
+
+
+        }
+
+
+        readFromRatingFile();
+        filterAndSort();
+    }
+
     private void initialiseTableList() {
         for (DatabaseName db : _databaseNameList) {
             _tableList.add(new DatabaseNameProperties(db));
         }
+    }
+
+    private String extractName(File file) {
+        String name = file.getName().substring(0, file.getName().length() - 4); // Remove .wav
+        name = name.substring(findUnderscore(name)); // Extract just the name
+
+
+        // Capitalize first letter
+
+        if (!Character.isUpperCase(name.charAt(0))) {
+            name = name.substring(0, 1).toUpperCase() + name.substring(1);
+        }
+
+
+        return name;
+    }
+
+    private int findUnderscore(String s) {
+        int count = 0;
+        int index = 0;
+        char[] charArr = s.toCharArray();
+
+        for (int i = 0; i < charArr.length; i++) {
+            if (charArr[i] == '_') {
+                count++;
+            }
+
+            if (count == 3) {
+                index = i;
+                break;
+            }
+        }
+        return index + 1;
     }
 }
