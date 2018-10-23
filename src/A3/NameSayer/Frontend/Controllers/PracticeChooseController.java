@@ -267,7 +267,7 @@ public class PracticeChooseController implements Initializable {
         }
 
         if (!added) {
-            showAlert(filterInput.getText() + " does not exist in database");
+            showAlert("Name does not exist in database");
         }
 
     }

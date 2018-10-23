@@ -30,6 +30,7 @@ public class Main extends Application {
         Database.getInstance();
         UserDatabase.getInstance().openMap();
         TextFileRW.getInstance().makeTimeFile();
+        TextFileRW.getInstance().makeTempFolders();
 
         // Load fonts
         Font.loadFont(getClass().getResourceAsStream("/A3/NameSayer/Frontend/Resources/Fonts/yugothil.ttf"), 65);
