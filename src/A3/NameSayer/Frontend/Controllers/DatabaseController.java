@@ -33,7 +33,7 @@ public class DatabaseController implements Initializable {
 
 
     private static final String DELETE_ATTEMPT = new String("Are you sure you want to delete attempt?");
-    private static final String DELETE_NAME = new String("Are you sure you want to delete this name and all attempts?");
+    private static final String DELETE_NAME = new String("Warning, this will delete all attempts");
 
     @FXML
     private TableView<DatabaseNameProperties> DatabaseTable;

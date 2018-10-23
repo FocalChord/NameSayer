@@ -18,12 +18,23 @@ public class AudioPlayAttemptWorker extends Task<Integer> {
 
     @Override
     protected Integer call() throws Exception {
-        String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", _attemptPath);
+        String trimCommand = String.format(
+                "ffmpeg -y -hide_banner -i  " + "'" + _attemptPath + "'" + " -af silenceremove=0:0:0:1:5:-35dB "
+                        + "'" + System.getProperty("user.dir")
+                        + "/Temp/temp.wav" + "'"
+        );
+        pb = new ProcessBuilder("bash", "-c", trimCommand).start();
+        System.out.println(trimCommand);
+        if (pb.waitFor() != 0) {
+            return 1;
+        }
+        String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", System.getProperty("user.dir") + "/Temp/temp.wav");
 
         try {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
+            System.out.println(trimCommand);
             if (pb.waitFor() != 0) {
-                return 1;
+                return 2;
             }
         } catch (IOException e) {
             e.printStackTrace();
