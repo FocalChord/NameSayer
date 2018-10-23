@@ -29,6 +29,7 @@ public class Main extends Application {
         TextFileRW.getInstance();
         Database.getInstance();
         UserDatabase.getInstance().openMap();
+        TextFileRW.getInstance().makeTimeFile();
 
         // Load fonts
         Font.loadFont(getClass().getResourceAsStream("/A3/NameSayer/Frontend/Resources/Fonts/yugothil.ttf"), 65);
@@ -45,9 +46,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1336, 768));
 
         primaryStage.setOnCloseRequest(e -> {
+            e.consume();
             UserDatabase.getInstance().saveMap();
             TextFileRW.getInstance().saveTime();
-            Platform.exit();
+//            Platform.exit();
             System.exit(0);
         });
 

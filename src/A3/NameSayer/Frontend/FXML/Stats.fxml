@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import eu.hansolo.tilesfx.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import eu.hansolo.tilesfx.Tile?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -11,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.StatsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/Stats.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.StatsController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1336.0" style="-fx-background-color: #34495e;">
          <children>
@@ -56,7 +63,10 @@
                   </Tile>
                </children>
             </GridPane>
-            <Button fx:id="backButton" layoutX="1198.0" layoutY="575.0" mnemonicParsing="false" onAction="#onBackClick" prefHeight="60.0" prefWidth="88.0" text="Back" />
+            <Button fx:id="backButton" layoutX="1198.0" layoutY="575.0" mnemonicParsing="false" onAction="#onBackClick" prefHeight="60.0" prefWidth="88.0" text="Back">
+               <effect>
+                  <Bloom />
+               </effect></Button>
          </children>
       </AnchorPane>
    </children>

@@ -20,7 +20,8 @@ public enum SwitchTo {
     PRACTICEPICK("A3/NameSayer/Frontend/FXML/PracticePick.fxml"),
     PRACTICECHOOSE("A3/NameSayer/Frontend/FXML/PracticeChoose.fxml"),
     PRACTICEINPUT("A3/NameSayer/Frontend/FXML/PracticeInput.fxml"),
-    STATISTICS("A3/NameSayer/Frontend/FXML/Stats.fxml");
+    STATISTICS("A3/NameSayer/Frontend/FXML/Stats.fxml"),
+    INFO("A3/NameSayer/Frontend/FXML/INFORMATION.fxml");
 
 
 

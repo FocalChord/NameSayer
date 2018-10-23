@@ -26,7 +26,7 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
         for (DatabaseName db : _listOfNames) {
             String trimCommand = String.format(
                     "ffmpeg -y -hide_banner -i  " + "'" + db.getPathToRecording()
-                            + "'" + " -af silenceremove=0:0:0:1:5:-30dB "
+                            + "'" + " -af silenceremove=0:0:0:1:5:-40dB "
                             + "'" + System.getProperty("user.dir")
                             + "/Temp/temp.wav" + "'"
             );

@@ -180,6 +180,16 @@ public class TextFileRW {
         file1.renameTo(new File(newName));
     }
 
+    public void makeTimeFile() throws IOException{
+        File f = new File("time.txt").getAbsoluteFile();
+        if(!f.exists()) {
+            BufferedWriter time = new BufferedWriter(new FileWriter("time.txt"));
+            time.write("0");
+            time.close();
+        }
+    }
+
+
     public void saveTime() {
         BufferedReader br = null;
         try {
@@ -196,7 +206,7 @@ public class TextFileRW {
         Long textTime = Long.valueOf(text);
         textTime = textTime * 60000000000L;
         long duration = System.nanoTime() + textTime - Main.startTime;
-        String time = String.valueOf(duration / 6000000000L);
+        String time = String.valueOf(duration / 60000000000L);
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream("time.txt"), "utf-8"))) {
             writer.write(time);
