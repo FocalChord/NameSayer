@@ -215,7 +215,7 @@ public class TextFileRW {
         }
     }
     public void makeTempFolders() throws IOException{
-       String folderName = System.getProperty("user.dir") + "/normalisetemp";
+       String folderName = System.getProperty("user.dir") + "/Temp";
        Path path = Paths.get(folderName);
        if(!Files.exists(path)){
            Files.createDirectory(path);
