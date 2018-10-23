@@ -58,7 +58,7 @@
                   <Insets top="40.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="soundCheckButton" mnemonicParsing="false" onAction="#buttonClick" prefHeight="120.0" prefWidth="500.0" text="Check Sound">
+            <Button fx:id="soundCheckButton" mnemonicParsing="false" onAction="#buttonClick" prefHeight="120.0" prefWidth="500.0" text="Check Mic">
                <font>
                   <Font name="Yu Gothic Light" />
                </font>
