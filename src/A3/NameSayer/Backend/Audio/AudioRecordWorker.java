@@ -29,7 +29,7 @@ public class AudioRecordWorker extends Task<Integer> {
             String trimCommand = String.format("ffmpeg -y -hide_banner -i  " + "'" + _recordingPath + "'" + " -af silenceremove=0:0:0:1:5:-40dB " + "'"+ _recordingPath + "'");
             Process trimProcess = new ProcessBuilder("bash", "-c", trimCommand).start();
             trimProcess.waitFor();
-            
+
             Process getVol = new ProcessBuilder("bash","-c",detectVolume).start();
             getVol.waitFor();
 
