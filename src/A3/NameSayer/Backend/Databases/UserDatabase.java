@@ -19,7 +19,7 @@ public class UserDatabase {
 
 
 
-    public static final String PATH_TO_USERS_FOLDER = new File("Databases/test").getAbsolutePath();
+    public static final String PATH_TO_USERS_FOLDER = new File("Databases/user").getAbsolutePath();
     public static final String NO_ATTEMPTS = "No Attempts Yet!";
 
     private static UserDatabase _userDatabase;
