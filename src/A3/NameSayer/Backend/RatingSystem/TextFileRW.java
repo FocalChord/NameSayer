@@ -220,6 +220,12 @@ public class TextFileRW {
        if(!Files.exists(path)){
            Files.createDirectory(path);
        }
+
+       String userDatabaseFolder = System.getProperty("user.dir") + "/Databases/user";
+       path = Paths.get(userDatabaseFolder);
+       if(!Files.exists(path)){
+            Files.createDirectory(path);
+        }
     }
 
 
