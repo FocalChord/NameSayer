@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -83,32 +84,32 @@ public class MainMenuController  implements Initializable  {
     }
 
     @FXML
-    private void onMouseEnterInfo(MouseEvent t){
+    private void onMouseEnterInfo(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/InfoInvert.png");
         infoView.setImage(image);
     }
 
     @FXML
-    private void onMouseExitInfo(MouseEvent t){
+    private void onMouseExitInfo(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/Info.png");
         infoView.setImage(image);
     }
 
     @FXML
-    private void onMouseEnterHelp(MouseEvent t){
+    private void onMouseEnterHelp() {
             Image image = new Image("A3/NameSayer/Frontend/Resources/Images/HelpInvert.png");
             helpView.setImage(image);
 
     }
 
     @FXML
-    private void onMouseExitHelp(MouseEvent t){
+    private void onMouseExitHelp(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/Help.png");
         helpView.setImage(image);
     }
 
     @FXML
-    private void onMouseClickInfo(MouseEvent t) throws IOException {
+    private void onMouseClickInfo() throws IOException {
         Stage stage = new Stage();
         URL url = Paths.get("./src/A3/NameSayer/Frontend/FXML/Information.fxml").toUri().toURL();
         Parent root = FXMLLoader.load(url);
@@ -117,8 +118,9 @@ public class MainMenuController  implements Initializable  {
         stage.show();
     }
 
+
     @FXML
-    private void onMouseClickHelp(MouseEvent t){
+    private void onMouseClickHelp(){
        Stage stage = new Stage();
        File file = new File("ManualHTML/UserManual.html").getAbsoluteFile();
        webView = new WebView();
