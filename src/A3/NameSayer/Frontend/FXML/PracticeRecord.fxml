@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="700.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/PracticeRecord.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.PracticeRecordController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="700.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/PracticeRecord.css"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.PracticeRecordController">
    <top>
       <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #34495e#34495e;" BorderPane.alignment="CENTER">
          <children>

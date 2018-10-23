@@ -52,10 +52,6 @@ public class DatabaseController implements Initializable {
     @FXML
     private Button deleteButton;
     @FXML
-    private Button backButton1;
-    @FXML
-    private Button backButton2;
-    @FXML
     private Button changeRatingButton;
     @FXML
     private TabPane tabPane;
