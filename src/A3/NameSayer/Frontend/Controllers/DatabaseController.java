@@ -175,6 +175,9 @@ public class DatabaseController implements Initializable {
 
                 }
         );
+
+        userTab.disableProperty().bind(Bindings.isEmpty(UserTable.getItems()));
+
     }
 
 
@@ -304,6 +307,10 @@ public class DatabaseController implements Initializable {
             if (alertText.equals(DELETE_NAME)) {
                 _userDatabase.deleteName();
                 UserTable.refresh();
+            }
+
+            if (UserTable.getItems().size() == 0 && UserAttemptsTable.getItems().size() == 0) {
+                tabPane.getSelectionModel().select(databaseTab);
             }
         }
     }

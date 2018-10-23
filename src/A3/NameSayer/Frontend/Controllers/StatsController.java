@@ -126,7 +126,6 @@ public class StatsController implements Initializable {
             seriesData.getData().add(new XYChart.Data<>("SA", storeCount.get(SATURDAY)));
             seriesData.getData().add(new XYChart.Data<>("SU", storeCount.get(SUNDAY)));
 
-
             daysPracticedTile.setChartType(Tile.ChartType.LINE);
             daysPracticedTile.setSeries(seriesData);
             daysPracticedTile.setSkinType(Tile.SkinType.SMOOTHED_CHART);
