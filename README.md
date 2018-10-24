@@ -15,6 +15,7 @@ How to run:
 
 Contributors:
 Nisarag Bhatt
+
 Richard Ng
 
 Note:
@@ -22,6 +23,7 @@ Note:
 While using this application, this warning may pop up:
 
 com.sun.javafx.binding.SelectBinding$SelectBindingHelper getObservableValue
+
 WARNING: Exception while evaluating select-binding [window, showing]
 
 Please be assured that this warning does affect the application in any way - It is in no way a segmentation fault, and
