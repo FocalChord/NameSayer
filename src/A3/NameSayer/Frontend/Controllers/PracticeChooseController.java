@@ -58,6 +58,11 @@ public class PracticeChooseController implements Initializable {
     private int _index = 0;
     private int _counter = 0;
 
+    /**
+     * Initialise the scene by loading the listeners, cell factories and binding the observable lists to the buttons
+     * @param location
+     * @param resources
+     */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,6 +70,10 @@ public class PracticeChooseController implements Initializable {
         loadListViewSelect();
         bindButtons();
     }
+
+    /**
+     * Bind the buttons to selection of names
+     */
 
     private void bindButtons() {
         // Get the observable list of current items
@@ -75,6 +84,10 @@ public class PracticeChooseController implements Initializable {
         deleteButton.disableProperty().bind(Bindings.isEmpty(list));
     }
 
+    /**
+     * Initialises the list selection view, and refreshes it so the list is constantly updated
+     */
+
     private void loadListViewSelect() {
 
 
@@ -84,6 +97,7 @@ public class PracticeChooseController implements Initializable {
             _userDatabase.updateCurrentlySelectedList(listViewSelect.getItems());
         });
 
+        //If the name is in the database colour it green, otherwise colour it red
         listViewSelect.setCellFactory(lv -> new ListCell<ColorItem>() {
             @Override
             protected void updateItem(ColorItem item, boolean empty) {
@@ -104,6 +118,10 @@ public class PracticeChooseController implements Initializable {
         listViewSelect.refresh();
     }
 
+    /**
+     * Double click to add names and loads the list view
+     */
+
     private void loadListViewDatabase() {
         listViewDatabase.setFocusTraversable(false);
 
@@ -114,10 +132,11 @@ public class PracticeChooseController implements Initializable {
                 filterInput.appendText(name + " ");
             }
         });
-
+        //Binds list view to input
         addListenerToTextField(_database.getDatabaseNameList());
     }
 
+    //Gives the ability to delete names from the selection list
     public void onDeleteClick() {
 
         if (listViewSelect.getSelectionModel().getSelectedItem() == null) {
@@ -139,6 +158,11 @@ public class PracticeChooseController implements Initializable {
 
     }
 
+    /**
+     * Allows for the uploading of TXT files that contain names. When the TXT file is uploaded, it displays the list
+     * of names on the selected list.
+     * @throws IOException
+     */
     public void onUploadClick() throws IOException {
         File file = getFile();
 
@@ -148,7 +172,7 @@ public class PracticeChooseController implements Initializable {
 
             String line = null;
 
-
+            //Look
             while ((line = reader.readLine()) != null) {
                 Boolean added = false;
 

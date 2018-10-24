@@ -57,10 +57,11 @@ public class MainMenuController  implements Initializable  {
     private WebEngine webEngine;
 
 
-
-
-
-
+    /**
+     * Depending on which button is pressed, switches to the corresponding scene
+     * @param e
+     * @throws IOException
+     */
 
     public void buttonClick(ActionEvent e) throws IOException {
 
@@ -83,30 +84,49 @@ public class MainMenuController  implements Initializable  {
         }
     }
 
+    /**
+     * When the info icon is hovered over, it changes colour
+     */
     @FXML
     private void onMouseEnterInfo(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/InfoInvert.png");
         infoView.setImage(image);
     }
 
+    /**
+     * Makes info icon default colour when un-hovered
+     */
     @FXML
     private void onMouseExitInfo(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/Info.png");
         infoView.setImage(image);
     }
 
+    /**
+     * When help icon is hovered over, it changes colour
+     */
+
     @FXML
     private void onMouseEnterHelp() {
-            Image image = new Image("A3/NameSayer/Frontend/Resources/Images/HelpInvert.png");
-            helpView.setImage(image);
+        Image image = new Image("A3/NameSayer/Frontend/Resources/Images/HelpInvert.png");
+        helpView.setImage(image);
 
     }
+
+    /**
+     * Makes help icon default colour when un-hovered
+     */
 
     @FXML
     private void onMouseExitHelp(){
         Image image = new Image("A3/NameSayer/Frontend/Resources/Images/Help.png");
         helpView.setImage(image);
     }
+
+    /**
+     * When info icon is pressed, opens the information screen
+     * @throws IOException
+     */
 
     @FXML
     private void onMouseClickInfo() throws IOException {
@@ -118,6 +138,9 @@ public class MainMenuController  implements Initializable  {
         stage.show();
     }
 
+    /**
+     * When help icon is pressed, opens the help screen
+     */
 
     @FXML
     private void onMouseClickHelp(){
