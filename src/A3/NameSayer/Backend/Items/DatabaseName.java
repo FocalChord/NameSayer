@@ -10,15 +10,15 @@ import java.util.List;
 
 public class DatabaseName implements Serializable {
 
-    private String _name;
-    private String _filePath;
+    private String _name; // This field is for containing the name of the database name file
+    private String _filePath; // This field provides the file path to the .wav file
+    private Rating _previousRating; // This field is for the previous rating of the recording
+    private Rating _currentRating; // This field is for the current rating of the recording
+    private List<DatabaseName> _duplicateList; // This list contains all the names relating to the duplicate audio files
+    private boolean _hasDuplicate; // This boolean checks if this name
 
-    private Rating _previousRating;
-    private Rating _currentRating;
 
-    private List<DatabaseName> _duplicateList;
-    private boolean _hasDuplicate;
-
+    // Constructor for constructing the DatabaseName object
     public DatabaseName(String name, String filePath) {
         _name = name;
         _filePath = filePath;
@@ -26,11 +26,25 @@ public class DatabaseName implements Serializable {
         _hasDuplicate = false;
     }
 
+    // Adds the database name list to the object
     public void addDuplicateList(List<DatabaseName> dbNameList) {
         _duplicateList = dbNameList;
         _hasDuplicate = true;
     }
 
+    // Typical getters and setters 
+    public void setRating(Rating rating) {
+        switch (rating) {
+            case GOOD:
+                _previousRating = _currentRating;
+                _currentRating = Rating.GOOD;
+                break;
+            case BAD:
+                _previousRating = _currentRating;
+                _currentRating = Rating.BAD;
+                break;
+        }
+    }
 
     public String getName() {
         return _name;
@@ -62,19 +76,6 @@ public class DatabaseName implements Serializable {
                 return Database.NO_RATING;
             default:
                 return "";
-        }
-    }
-
-    public void setRating(Rating rating) {
-        switch (rating) {
-            case GOOD:
-                _previousRating = _currentRating;
-                _currentRating = Rating.GOOD;
-                break;
-            case BAD:
-                _previousRating = _currentRating;
-                _currentRating = Rating.BAD;
-                break;
         }
     }
 

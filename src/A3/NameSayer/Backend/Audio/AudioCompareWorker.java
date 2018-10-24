@@ -1,6 +1,5 @@
 package A3.NameSayer.Backend.Audio;
 
-import A3.NameSayer.Backend.Databases.Database;
 import A3.NameSayer.Backend.Items.DatabaseName;
 import javafx.concurrent.Task;
 import javafx.scene.control.Button;
@@ -9,7 +8,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+/**
+ *
+ */
 
 public class AudioCompareWorker extends Task<Integer> {
 

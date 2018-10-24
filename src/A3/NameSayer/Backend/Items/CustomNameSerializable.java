@@ -1,11 +1,15 @@
 package A3.NameSayer.Backend.Items;
 
-import javafx.collections.ObservableList;
-
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * This class exists since CustomName couldn't be serialized due to an observable list existing in a field
+ * Hence this class works as a wrapper class for seralizing
+ *
+ * All of this class is self explanatory
+ */
 public class CustomNameSerializable implements Serializable {
 
     private String _name;
