@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
+/**
+ * This class deals with playing audio of concatenated and also database names
+ */
 public class AudioPlayMultipleNameWorker extends Task<Integer> {
 
     public static Process pb;
@@ -25,7 +27,10 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
 
     @Override
     protected Integer call() throws Exception {
+        //Go through each separate name in the concatenated name
         for (DatabaseName db : _listOfNames) {
+
+            //Get the input volume and normalise it
             String detectVolume = String.format("ffmpeg -y -i" + " '" + db.getPathToRecording() + "'" + " -filter:a volumedetect -f null /dev/null 2>&1 | grep mean_volume");
             Process getVol = new ProcessBuilder("bash","-c",detectVolume).start();
             getVol.waitFor();
@@ -45,6 +50,8 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
                 return 1;
             }
 
+            //Trim the audio
+
             String trimCommand = String.format(
                     "ffmpeg -y -hide_banner -i  " + "'" + System.getProperty("user.dir") + "/Temp/temp.wav"
                             + "'" + " -af silenceremove=0:0:0:1:5:-40dB "
@@ -56,7 +63,7 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
                 return 2;
             }
 
-
+            //Play the audio
 
             String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", System.getProperty("user.dir") + "/Temp/temp.wav");
             try {
@@ -72,6 +79,7 @@ public class AudioPlayMultipleNameWorker extends Task<Integer> {
         return 0;
     }
 
+    //Once the name has finished playing, set the button name back to Listen
     @Override
     protected void succeeded() {
         _button.setText("Listen");

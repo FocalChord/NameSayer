@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- *
+ *This class deals with the compare feature, and plays the audio of the database name first, and then the recording
  */
 
 public class AudioCompareWorker extends Task<Integer> {
@@ -33,7 +33,10 @@ public class AudioCompareWorker extends Task<Integer> {
 
     @Override
     protected Integer call() throws Exception {
+        //Go through each name in the database
         for (DatabaseName db : _listOfNames) {
+
+            //Normalise the audio
             String detectVolume = String.format("ffmpeg -y -i" + " '" + db.getPathToRecording() + "'" + " -filter:a volumedetect -f null /dev/null 2>&1 | grep mean_volume");
             Process getVol = new ProcessBuilder("bash","-c",detectVolume).start();
             getVol.waitFor();
@@ -54,6 +57,7 @@ public class AudioCompareWorker extends Task<Integer> {
             }
 
 
+            //Trim the audio
             String trimCommand = String.format(
                     "ffmpeg -y -hide_banner -i  " + "'" + System.getProperty("user.dir") + "/Temp/temp.wav"
                             + "'" + " -af silenceremove=0:0:0:1:5:-30dB "
@@ -65,6 +69,7 @@ public class AudioCompareWorker extends Task<Integer> {
             if (pb.waitFor() != 0) {
                 return 1;
             }
+            //Play the audio of the database version
             String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", System.getProperty("user.dir") + "/Temp/temp.wav");
             try {
                 pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
@@ -75,8 +80,8 @@ public class AudioCompareWorker extends Task<Integer> {
                 e.printStackTrace();
             }
         }
+        //Play the audio of the user recording
         String fileName = _recordingPath;
-        //TimeUnit.SECONDS.sleep(1);
         String ffmpegCommand2 = String.format("ffplay -nodisp -autoexit \'%s\'", fileName);
         try {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand2).start();
@@ -90,6 +95,7 @@ public class AudioCompareWorker extends Task<Integer> {
         return 0;
     }
 
+    //Once finished playing, set the button back to compare
     @Override
     protected void succeeded() {
         _button.setText("Compare");
