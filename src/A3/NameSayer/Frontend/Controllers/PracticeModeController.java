@@ -25,8 +25,6 @@ import java.util.*;
 public class PracticeModeController implements Initializable {
 
 
-    @FXML
-    private Button backButton;
 
     @FXML
     private Button listenButton;
@@ -34,11 +32,6 @@ public class PracticeModeController implements Initializable {
     @FXML
     private Button recordButton;
 
-    @FXML
-    private Button randomiseButton;
-
-    @FXML
-    private Button mainMenuButton;
 
     @FXML
     private ListView<CustomName> namePracticeList;
@@ -54,6 +47,11 @@ public class PracticeModeController implements Initializable {
     private boolean _databaseNamePlaying = false;
     private boolean _attemptPlaying = false;
 
+    /**
+     * Initialise all bindings and get the list of seletced names from the previous scene
+     * @param location
+     * @param resources
+     */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,7 +60,6 @@ public class PracticeModeController implements Initializable {
         ObservableList<Attempt> list1 = attemptsList.getSelectionModel().getSelectedItems();
 
         // If nothing is selected then disable buttons else enable
-        //listenButton.disableProperty().bind(Bindings.isEmpty(list));
 
         listenButton.disableProperty().bind(Bindings.and(
                 Bindings.isEmpty(list),
@@ -78,7 +75,9 @@ public class PracticeModeController implements Initializable {
     }
 
 
-    // Load both lists (first list is for names and the second is attempts related to them)
+    /**
+     * Load both lists (first list is for names and the second is attempts related to them)
+     */
 
     private void setUpLists() {
         namePracticeList.itemsProperty().setValue(_userDatabase.getCurrentCustomNames());
@@ -119,18 +118,36 @@ public class PracticeModeController implements Initializable {
 
     }
 
+    /**
+     * If the user clicks on the other list, clear selection of the previous list
+     */
     public void handleClickListView() {
         attemptsList.getSelectionModel().clearSelection();
         attemptsList.refresh();
     }
 
+    /**
+     * When the record button is pressed, open the new stage
+     * @throws IOException
+     */
     public void onRecordClick() throws IOException {
         SwitchStage.getInstance().switchStage(SwitchTo.RECORDSTAGE);
     }
 
+    /**
+     * When the random button is pressed, shuffle the list
+     */
+
     public void onRandomClick() {
         Collections.shuffle(namePracticeList.getItems());
     }
+
+    /**
+     * When the main menu button is pressed, clear all the current selections of names, and take the user to the
+     * main menu
+     * @param e
+     * @throws IOException
+     */
 
     public void onMainMenuClick(ActionEvent e) throws IOException {
         _userDatabase.closeSession();
@@ -140,18 +157,28 @@ public class PracticeModeController implements Initializable {
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
+    /**
+     * Take the user back to the PracticeChoose scene
+     * @param e
+     * @throws IOException
+     */
     public void onBackClick(ActionEvent e) throws IOException {
         _userDatabase.clearCustomNames();
         closeProcess();
         SwitchScenes.getInstance().switchScene(SwitchTo.PRACTICECHOOSE, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
+    /**
+     * When the user clicks on the listen button, carries out the various audio processing, and the user will hear
+     * the current name selected
+     */
     public void onListenClick() {
         if (listenButton.getText().equals("Stop")) {
             closeProcess();
         } else {
             Audio audioUtil = new Audio();
             if (attemptsList.getSelectionModel().isSelected(attemptsList.getSelectionModel().getSelectedIndex())) {
+                //If there is no attempt for that current name, give an error
                 if (attemptsList.getItems().get(0).getAttemptName().equals(UserDatabase.NO_ATTEMPTS)) {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Make an attempt!");
                     DialogPane dialogPane = alert.getDialogPane();
@@ -159,12 +186,14 @@ public class PracticeModeController implements Initializable {
                     dialogPane.getStyleClass().add("myDialog");
                     alert.showAndWait();
                 } else {
+                    //Play the audio and set the listen button to a stpo button
                     _databaseNamePlaying = false;
                     _attemptPlaying = true;
                     listenButton.setText("Stop");
                     audioUtil.playAttempt(_userDatabase.getCurrentAttempt().getAttemptPath(), listenButton);
                 }
             } else {
+                //Play the database name if the user recording attempt is not selected
                 _databaseNamePlaying = true;
                 _attemptPlaying = false;
                 listenButton.setText("Stop");
@@ -175,11 +204,14 @@ public class PracticeModeController implements Initializable {
 
     }
 
+    /**
+     * Destroys the process so that the audio stops playing
+     */
     private void closeProcess() {
         if (_databaseNamePlaying) {
             _currentProcess = AudioPlayMultipleNameWorker.pb;
         } else {
-            _currentProcess = AudioPlayAttemptWorker.pb;
+            _currentProcess = AudioPlayAttemptWorker._pb;
         }
 
         if (_currentProcess != null) {

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SoundCheckController implements Initializable {
+public class SoundCheckController {
 
     private Task _taskWorker;
 
@@ -35,12 +35,11 @@ public class SoundCheckController implements Initializable {
     private Button testButton;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-
-    }
-
-
+    /**
+     * Opens the targetline to allow the program to get audio input from the users mic. Reads this audio input and translates
+     * it into a number which can be read as a level meter
+     * @return
+     */
     private Task createWorker(){
         return new Task(){
             @Override
@@ -55,7 +54,7 @@ public class SoundCheckController implements Initializable {
                     targetLine.open();
                     targetLine.start();
 
-
+                    //Reads and updates the level meter.
                     try {
                         while (!_stopCapture) {
 
@@ -80,8 +79,12 @@ public class SoundCheckController implements Initializable {
         };
     }
 
-    //Reference: http://www.technogumbo.com/tutorials/Java-Microphone-Selection-And-Level-Monitoring/Java-Microphone-Selection-And-Level-Monitoring.php
-    //Use  root mean squared method to calculate the amplitude of a section of wave data. I.E is the mic quiet or loud
+    /**
+     * Reference: http://www.technogumbo.com/tutorials/Java-Microphone-Selection-And-Level-Monitoring/Java-Microphone-Selection-And-Level-Monitoring.php
+     * Use  root mean squared method to calculate the amplitude of a section of wave data. I.E is the mic quiet or loud
+     * @param audioData
+     * @return
+     */
     private int calculateRMSLevel(byte[] audioData){
         long lSum = 0;
         for(int i=0; i < audioData.length; i++)
@@ -98,13 +101,20 @@ public class SoundCheckController implements Initializable {
         return (int)(Math.pow(averageMeanSquare,0.5d) + 0.5);
     }
 
+    /**
+     * Method which controls the button clicks
+     * @param e
+     * @throws IOException
+     */
     public void buttonClick(ActionEvent e) throws IOException {
+        //When the user clicks the back button., stops the audio capturing and returns user to main menu
         if (e.getSource().equals(backButton)) {
             _stopCapture = true;
             SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e,SwitchScenes.largeWidth,SwitchScenes.largeHeight);
 
 
         }
+        //When the user clicks the test button, starts the targetline
         if(e.getSource().equals(testButton)){
             testButton.setDisable(true);
             _taskWorker = createWorker();

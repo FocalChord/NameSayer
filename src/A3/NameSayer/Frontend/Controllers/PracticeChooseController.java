@@ -172,20 +172,27 @@ public class PracticeChooseController implements Initializable {
 
             String line = null;
 
-            //Look
+            //Get each line of the text file
             while ((line = reader.readLine()) != null) {
                 Boolean added = false;
 
+                //If a line contains concatenated names with a space or dash, put each name into a string array
                 String[] splitline = line.trim().split("[\\s-]+");
 
                 int length = splitline.length;
                 _counter = 0;
+
+                //Go through the list of names in the database
                 for (int i = 0; i < _database.getDatabaseNameList().size(); i++) {
+                    //Go through each name in the array
                     for (int j = 0; j < length; j++) {
+                        //If the name is in the database then add it to the selected list
                         if (splitline[j].toLowerCase().equals(_database.getDatabaseNameList().get(i).toString().toLowerCase())) {
                             _counter++;
+                            //This is to ensure that each separate name in the concatenated name are all in the database
                             if (_counter == length) {
                                 String line2 = capitalise(line);
+                                //If the same name is repeated twice, only add it once
                                 ColorItem item = new ColorItem(line2, Color.GREEN, true);
                                 if (listViewSelect.getItems().stream().anyMatch(x -> x.getText().equals(line2))){
                                     added = true;
@@ -197,7 +204,7 @@ public class PracticeChooseController implements Initializable {
                         }
                     }
                 }
-
+                //If the name is not in the database, colour it red
                 if (!added) {
                     ColorItem item = new ColorItem(line, Color.RED, false);
                     listViewSelect.getItems().add(item);
@@ -206,11 +213,21 @@ public class PracticeChooseController implements Initializable {
         }
     }
 
+    /**
+     * When next is pressed, the green coloured names are carried over, and switch the scene to PracticeMode
+     * @param e
+     * @throws IOException
+     */
     public void onNextClick(ActionEvent e) throws IOException {
         _userDatabase.makeCustomNames();
         SwitchScenes.getInstance().switchScene(SwitchTo.PRACTICEMODE, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
+    /**
+     * When the user clicks Back, clears the name selection and goes to MainMenu
+     * @param e
+     * @throws IOException
+     */
     public void onBackClick(ActionEvent e) throws IOException {
         _userDatabase.closeSession();
         _userDatabase.clearCustomNames();
@@ -218,11 +235,16 @@ public class PracticeChooseController implements Initializable {
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
+
     public void onAddClick() {
         parseTextField();
     }
 
-    // Private Methods
+    /**
+     * Filters the input list according to the letters typed in the TextField, i.e If a user types a, only names that start
+     * with a will be shown in the input list.
+     * @param filteredData
+     */
 
     private void addListenerToTextField(FilteredList<String> filteredData) {
         filterInput.setOnKeyPressed(t -> {
@@ -262,6 +284,11 @@ public class PracticeChooseController implements Initializable {
         listViewDatabase.itemsProperty().setValue(filteredData);
     }
 
+
+    /**
+     * Takes whatever is typed into the TextField and parses it so that every first letter of each name is the correct
+     * format
+     */
     private void parseTextField() {
         String input = filterInput.getText();
         input = input.trim();
@@ -270,6 +297,7 @@ public class PracticeChooseController implements Initializable {
 
         int counter = 0;
         boolean added = false;
+        //Checks if each separate name in the concatenated name is in the database
         for (int i = 0; i < _database.getDatabaseNameList().size(); i++) {
             for (int j = 0; j < length; j++) {
                 if (splitline[j].toLowerCase().equals(_database.getDatabaseNameList().get(i).toLowerCase())) {
@@ -277,9 +305,11 @@ public class PracticeChooseController implements Initializable {
                     if (counter == length) {
                         String output = capitalise(input);
                         ColorItem item = new ColorItem(output, Color.GREEN, true);
+                        //If the name is already on the selected list, then give an alert
                         if (listViewSelect.getItems().stream().anyMatch(x -> x.getText().equals(output))) {
                             added = true;
                             showAlert("Name already in list");
+                            //Add it to the list if every name is in the database
                         } else {
                             listViewSelect.getItems().add(item);
                             added = true;
@@ -296,6 +326,12 @@ public class PracticeChooseController implements Initializable {
 
     }
 
+    /**
+     * Takes a name and makes the first letter capitalised, with all other letters lowercase. Spaces are also removed
+     * @param name
+     * @return the name capitalised with spaces removed
+     */
+
     private String capitalise(String name) {
         name = name.trim().replaceAll("\\s+", " ").toLowerCase();
 
@@ -310,6 +346,10 @@ public class PracticeChooseController implements Initializable {
         return result;
     }
 
+    /**
+     * Contains functionality for alert messages and also styles the alert messages with css
+     * @param alertText
+     */
     private void showAlert(String alertText) {
         Alert alert = new Alert(Alert.AlertType.ERROR, alertText);
         DialogPane dialogPane = alert.getDialogPane();
@@ -319,10 +359,16 @@ public class PracticeChooseController implements Initializable {
         filterInput.clear();
     }
 
+    /**
+     * Contains the functionality that opens the FileChooser when the user clicks upload
+     * @return
+     */
     private File getFile() {
         String userDir = System.getProperty("user.dir");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(userDir));
+
+        //Filter so that only TXT files are allowed to be seletced
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TXT files", "*.txt"));
         File file = fileChooser.showOpenDialog(null);
 

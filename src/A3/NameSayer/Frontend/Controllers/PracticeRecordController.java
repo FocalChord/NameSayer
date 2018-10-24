@@ -39,14 +39,18 @@ public class PracticeRecordController implements Initializable {
     @FXML
     private Label label;
 
-    private Database _database = Database.getInstance();
     private UserDatabase _userDatabase = UserDatabase.getInstance();
     private Process _currentProcess = AudioRecordWorker.pb;
     private Timeline _countProgress = new Timeline();
 
 
-
+    /**
+     * Method which controls all the button clicks
+     * @param e
+     * @throws IOException
+     */
     public void buttonClick(ActionEvent e) throws IOException {
+        //When the user clicks the record button, starts the recoridng and changes the record button to stop.
         if (e.getSource().equals(recordButton)) {
 
             if (recordButton.getText().equals("Stop")) {
@@ -80,8 +84,11 @@ public class PracticeRecordController implements Initializable {
         }
     }
 
-    // 5 Second progress bar
 
+    /**
+     * Default 5 second progress bar, starts the progress bar when the user clicks record
+     * @param e
+     */
 
     private void startProgressBar(ActionEvent e) {
         EventHandler onFinished = (EventHandler<ActionEvent>) t -> {
@@ -95,6 +102,7 @@ public class PracticeRecordController implements Initializable {
         _countProgress.setCycleCount(1);
         _countProgress.getKeyFrames().add(new KeyFrame(Duration.seconds(5), onFinished,new KeyValue(progressBar.progressProperty(), 1)));
         _countProgress.play();
+        //When progress bar is finished or the user clicks stop, resets the progress bar back to 0
         _countProgress.setOnFinished(event -> progressBar.setProgress(0.0));
 
     }

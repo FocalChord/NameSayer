@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class AudioPlayAttemptWorker extends Task<Integer> {
 
-    public static Process pb;
+    public static Process _pb;
     private String _attemptPath;
     private Button _button;
 
@@ -23,15 +23,15 @@ public class AudioPlayAttemptWorker extends Task<Integer> {
                         + "'" + System.getProperty("user.dir")
                         + "/Temp/temp.wav" + "'"
         );
-        pb = new ProcessBuilder("bash", "-c", trimCommand).start();
-        if (pb.waitFor() != 0) {
+        _pb = new ProcessBuilder("bash", "-c", trimCommand).start();
+        if (_pb.waitFor() != 0) {
             return 1;
         }
         String ffmpegCommand = String.format("ffplay -nodisp -autoexit \'%s\'", System.getProperty("user.dir") + "/Temp/temp.wav");
 
         try {
-            pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
-            if (pb.waitFor() != 0) {
+            _pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
+            if (_pb.waitFor() != 0) {
                 return 2;
             }
         } catch (IOException e) {

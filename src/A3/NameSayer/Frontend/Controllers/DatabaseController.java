@@ -19,7 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 
 import java.io.IOException;
@@ -69,7 +68,12 @@ public class DatabaseController implements Initializable {
     private boolean _attemptPlaying = false;
 
 
-    // Load database and table
+    /**
+     * Loads databaseTable and also the all the user recordings, places them all in the list and creates button bindings
+     * for them
+     * @param location
+     * @param resources
+     */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,6 +82,10 @@ public class DatabaseController implements Initializable {
         bindDatabaseButtons();
         initialiseTabPane();
     }
+
+    /**
+     * Loads the user list of all user recordings
+     */
 
     private void loadUserList() {
 
@@ -97,7 +105,7 @@ public class DatabaseController implements Initializable {
                 }
             }
         });
-
+        //Checks what name on the list is selected on the user recording list
         UserTable.getSelectionModel().selectedItemProperty().addListener((ob, oldVal, newVal) -> {
             if (newVal == null) {
                 _userDatabase.setCurrentName(oldVal);
@@ -106,7 +114,7 @@ public class DatabaseController implements Initializable {
             }
 
             UserAttemptsTable.itemsProperty().setValue(_userDatabase.getCurrentCustomName().getListOfAttempts());
-
+            //Checks what name on the list is selected on the user attempt recording list
             UserAttemptsTable.setCellFactory(lv -> new ListCell<Attempt>() {
                 @Override
                 public void updateItem(Attempt item, boolean empty) {
@@ -161,6 +169,9 @@ public class DatabaseController implements Initializable {
         ));
     }
 
+    /**
+     * Add binding to tabPane, so if there are no user recordings, the button is disabled
+     */
     private void initialiseTabPane() {
         tabPane.getSelectionModel().selectedItemProperty().addListener(
                 (observable, userTab, databaseTab) -> {
@@ -177,7 +188,9 @@ public class DatabaseController implements Initializable {
     }
 
 
-
+    /**
+     * Destroys audio so it stpos playing
+     */
     private void closeProcess() {
         _currentProcess = AudioPlayMultipleNameWorker.pb;
         if (_currentProcess != null) {
@@ -187,10 +200,6 @@ public class DatabaseController implements Initializable {
     }
 
     // When you click on the list view, deselect the UserTable attempts so database name can be played correctly
-
-    public void handleClickListView() {
-
-    }
 
     public void handleClickUserTable() {
         UserAttemptsTable.getSelectionModel().clearSelection();
@@ -202,6 +211,9 @@ public class DatabaseController implements Initializable {
         //UserTable.refresh();
     }
 
+    /**
+     * When the user clicks on the listen button, get the current name and plays the audio for it
+     */
     public void onListenDatabaseClick() {
 
         if (listenButton1.getText().equals("Stop Listening")) {
@@ -215,15 +227,26 @@ public class DatabaseController implements Initializable {
         }
     }
 
+    /**
+     * When user clicks on ChangeRating button, opens the rating screen
+     */
     public void onChangeRatingClick() {
         showRatingAlert();
     }
 
+    /**
+     * When back button is pressed, stops the audio playback and switches to main menu
+     * @param e
+     * @throws IOException
+     */
     public void onBackButtonClick(ActionEvent e) throws IOException {
         closeProcess();
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
 
+    /**
+     * Audio functionality for user recording attempts
+     */
     public void onListenAttemptClick() {
         if (listenButton2.getText().equals("Stop")) {
             closeUserProcess();
@@ -244,6 +267,9 @@ public class DatabaseController implements Initializable {
         }
     }
 
+    /**
+     * Shows the alerts when the user clicks the delete button
+     */
     public void onDeleteClick() {
         if (UserAttemptsTable.getSelectionModel().isSelected(UserAttemptsTable.getSelectionModel().getSelectedIndex())) {
             showDeleteAlert(DELETE_ATTEMPT);
@@ -253,11 +279,14 @@ public class DatabaseController implements Initializable {
 
     }
 
+    /**
+     * Destroys audio process for attempts, and sets the button back to 'listen'
+     */
     private void closeUserProcess() {
         if (_databaseNamePlaying) {
             _currentProcess = AudioPlayMultipleNameWorker.pb;
         } else {
-            _currentProcess = AudioPlayAttemptWorker.pb;
+            _currentProcess = AudioPlayAttemptWorker._pb;
         }
 
         if (_currentProcess != null) {
@@ -266,6 +295,9 @@ public class DatabaseController implements Initializable {
         }
     }
 
+    /**
+     * Alert that shows the rating screen
+     */
     private void showRatingAlert() {
         ButtonType goodButton = new ButtonType("Good");
         ButtonType badButton = new ButtonType("Bad");
@@ -278,6 +310,7 @@ public class DatabaseController implements Initializable {
         window.setOnCloseRequest(f -> alert.hide());
         Optional<ButtonType> result = alert.showAndWait();
         result.ifPresent(res -> {
+            //If the user presses good, then the rating for that name will be set to good, and the same for bad
             if (res.equals(goodButton)) {
                 _database.changeRating(Rating.GOOD);
                 DatabaseTable.refresh();
@@ -288,18 +321,23 @@ public class DatabaseController implements Initializable {
         });
     }
 
+    /**
+     * Alert that shows the delete screen
+     * @param alertText
+     */
     private void showDeleteAlert(String alertText) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, alertText, ButtonType.YES, ButtonType.NO);
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getClassLoader().getResource("A3/NameSayer/Frontend/Styles/Alert.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
         alert.showAndWait();
+        //If the user clicks yes, it will delete that attempt
         if (alert.getResult().equals(ButtonType.YES)) {
             if (alertText.equals(DELETE_ATTEMPT)) {
                 _userDatabase.deleteAttempt();
                 UserAttemptsTable.refresh();
             }
-
+            //If they delete the full name and not attempt, it will give a different alert.
             if (alertText.equals(DELETE_NAME)) {
                 _userDatabase.deleteName();
                 UserTable.refresh();
