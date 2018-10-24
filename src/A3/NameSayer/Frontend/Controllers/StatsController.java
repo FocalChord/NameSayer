@@ -10,6 +10,7 @@ import eu.hansolo.tilesfx.Tile;
 import eu.hansolo.tilesfx.skins.BarChartItem;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.chart.XYChart;
@@ -24,11 +25,16 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class StatsController implements Initializable {
-    public Tile timeSpentTile;
-    public Tile mostAttemptsTile;
-    public Tile longestNameTile;
-    public Tile daysPracticedTile;
-    public Button backButton;
+    @FXML
+    private Tile timeSpentTile;
+    @FXML
+    private Tile mostAttemptsTile;
+    @FXML
+    private Tile longestNameTile;
+    @FXML
+    private Tile daysPracticedTile;
+    @FXML
+    private Button backButton;
 
     private static final String SUNDAY = "Sun";
     private static final String MONDAY = "Mon";

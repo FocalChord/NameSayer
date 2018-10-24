@@ -189,7 +189,6 @@ public class UserDatabase {
         ArrayList<CustomNameSerializable> cnsList = new ArrayList<>();
 
         for (String s : _allCustomNames.keySet()) {
-            System.out.println(s);
 
             CustomName cn = _allCustomNames.get(s);
 
@@ -208,14 +207,12 @@ public class UserDatabase {
 
 
         try {
-            System.out.println("called");
             FileOutputStream fos = new FileOutputStream(".namesayer.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(cnsList);
             oos.close();
             fos.close();
 
-            System.out.println(cnsList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -244,12 +241,10 @@ public class UserDatabase {
             ioe.printStackTrace();
             return;
         } catch (ClassNotFoundException c) {
-            System.out.println("Class not found");
             c.printStackTrace();
             return;
         }
 
-        System.out.println(temp);
 
         for (CustomNameSerializable cns : temp) {
             CustomName tempObj = new CustomName(cns);
@@ -281,7 +276,6 @@ public class UserDatabase {
 
 
         for (CustomName s : _allCustomNamesList) {
-            System.out.println(s.getName().equals(_selectedCustomName.getName()));
             if (s.getName().equals(_selectedCustomName.getName())) {
                 _allCustomNamesList.remove(index);
                 break;

@@ -35,7 +35,7 @@ public class AudioRecordWorker extends Task<Integer> {
             pb.waitFor();
 
             //Trim Audio
-            String trimCommand = String.format("ffmpeg -y -hide_banner -i  " + "'" + _recordingPath + "'" + " -af silenceremove=0:0:0:1:5:-30dB " + "'"+ _recordingPath + "'");
+            String trimCommand = String.format("ffmpeg -y -hide_banner -i  " + "'" + _recordingPath + "'" + " -af silenceremove=0:0:0:1:5:-20dB " + "'"+ _recordingPath + "'");
             Process trimProcess = new ProcessBuilder("bash", "-c", trimCommand).start();
             trimProcess.waitFor();
 
