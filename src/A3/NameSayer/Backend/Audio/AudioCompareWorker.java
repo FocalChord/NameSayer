@@ -10,8 +10,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- * AudioCompareWorker is a task which calls ffmpeg commands to play the database recording first and then the
- * attempt recording
+ *
  */
 
 public class AudioCompareWorker extends Task<Integer> {

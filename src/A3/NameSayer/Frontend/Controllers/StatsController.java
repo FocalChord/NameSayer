@@ -50,6 +50,7 @@ public class StatsController implements Initializable {
         populateTiles();
     }
 
+    // This method populates all the tiles with the corresponding information
     private void populateTiles() {
         populateTimeTile();
         populateAttemptsTile();
@@ -57,11 +58,12 @@ public class StatsController implements Initializable {
         populateDaysPracticedTile();
     }
 
+    // This method populates the day practiced tile
     private void populateDaysPracticedTile() {
         daysPracticedTile.setTitle("How many attempts per day");
         daysPracticedTile.setTitleAlignment(TextAlignment.CENTER);
 
-
+        // Gets the custom names with attempts
         ObservableList<CustomName> statList = _userDatabase.getCustomNamesWithAttempts();
 
         if (statList.size() < 1) {
@@ -70,6 +72,7 @@ public class StatsController implements Initializable {
             daysPracticedTile.setSkinType(Tile.SkinType.TEXT);
         } else {
             HashMap<String, Integer> storeCount = new HashMap<>();
+            // Initializing all the fields of the map to 0
             storeCount.put(SUNDAY, 0);
             storeCount.put(MONDAY, 0);
             storeCount.put(TUESDAY, 0);
@@ -79,7 +82,7 @@ public class StatsController implements Initializable {
             storeCount.put(SATURDAY, 0);
 
 
-
+            // Gets all the attempts done corresponding to the day
             for (CustomName c : statList) {
                 for (Attempt a : c.getListOfAttempts()) {
                     Date d = new Date(new File(a.getAttemptPath()).lastModified());
@@ -114,6 +117,7 @@ public class StatsController implements Initializable {
                 }
             }
 
+            // Setting the XY Chart
             XYChart.Series<String, Number> seriesData = new XYChart.Series();
             seriesData.setName("series");
             seriesData.getData().add(new XYChart.Data<>("MO", storeCount.get(MONDAY)));
@@ -133,6 +137,7 @@ public class StatsController implements Initializable {
 
     }
 
+    // This method populates the longest name tile
     private void populateLongestNameTile() {
         longestNameTile.setTitle("Longest name practiced");
         longestNameTile.setTitleAlignment(TextAlignment.CENTER);
@@ -145,10 +150,9 @@ public class StatsController implements Initializable {
         } else {
             for (CustomName c : statList) {
                 BarChartItem barChartItem = new BarChartItem(c.getName(), c.getName().replaceAll("\\s+", "").length(), Tile.DARK_BLUE);
+                // Adds all the stats to a bar chart item and adds the barchart item to the graph
                 longestNameTile.addBarChartItem(barChartItem);
             }
-
-
         }
 
         longestNameTile.setSkinType(Tile.SkinType.BAR_CHART);
@@ -156,6 +160,7 @@ public class StatsController implements Initializable {
 
     }
 
+    // This method populates the attempts tile for how many attempts corresponding to a name
     private void populateAttemptsTile() {
         mostAttemptsTile.setTitle("Name with most attempts");
         mostAttemptsTile.setTitleAlignment(TextAlignment.CENTER);
@@ -163,6 +168,8 @@ public class StatsController implements Initializable {
 
         ObservableList<CustomName> statList = _userDatabase.getCustomNamesWithAttempts();
 
+
+        // Makes the barchart and stats
         if (statList.size() < 1) {
             mostAttemptsTile.setText("Practice atleast 1 name to see these stats");
             mostAttemptsTile.setTextAlignment(TextAlignment.CENTER);
@@ -172,7 +179,6 @@ public class StatsController implements Initializable {
                 if (index > 4) {
                     break;
                 }
-
                 BarChartItem barChartItem = new BarChartItem(c.getName(), c.getCurrentAttemptNumber() - 1, Tile.BLUE);
                 mostAttemptsTile.addBarChartItem(barChartItem);
                 index++;
@@ -184,16 +190,16 @@ public class StatsController implements Initializable {
         mostAttemptsTile.setAnimated(true);
     }
 
+    // This method populates the time tile by setting the time
     private void populateTimeTile() {
         timeSpentTile.setTitle("Total time spent practicing");
         timeSpentTile.setTitleAlignment(TextAlignment.CENTER);
         getTime();
         timeSpentTile.setDescriptionAlignment(Pos.CENTER);
         timeSpentTile.setSkinType(Tile.SkinType.TEXT);
-
-
     }
 
+    // Gets the time from the .txt file
     private void getTime() {
         try {
             _br = new BufferedReader(new FileReader("time.txt"));
@@ -217,7 +223,7 @@ public class StatsController implements Initializable {
 
     }
 
-
+    // For going back to main menu
     public void onBackClick(ActionEvent e) throws IOException {
         SwitchScenes.getInstance().switchScene(SwitchTo.MAINMENU, e, SwitchScenes.largeWidth, SwitchScenes.largeHeight);
     }
