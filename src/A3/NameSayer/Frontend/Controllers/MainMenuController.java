@@ -130,11 +130,15 @@ public class MainMenuController  implements Initializable  {
 
     @FXML
     private void onMouseClickInfo() throws IOException {
+
+        URL url = getClass().getClassLoader().getResource("A3/NameSayer/Frontend/FXML/Information.fxml");
+
+        FXMLLoader loader = new FXMLLoader(url);
+
+        Parent sParent = loader.load();
+        Scene sScene = new Scene(sParent, 600, 300);
         Stage stage = new Stage();
-        URL url = Paths.get("./src/A3/NameSayer/Frontend/FXML/Information.fxml").toUri().toURL();
-        Parent root = FXMLLoader.load(url);
-        stage.setScene(new Scene(root, 600, 300));
-        stage.resizableProperty().set(Boolean.FALSE);
+        stage.setScene(sScene);
         stage.show();
     }
 

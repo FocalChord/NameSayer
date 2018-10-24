@@ -17,7 +17,8 @@ public enum SwitchTo {
     RECORDSTAGE("A3/NameSayer/Frontend/FXML/PracticeRecord.fxml"),
     PRACTICEQUERY("A3/NameSayer/Frontend/FXML/PracticeQuery.fxml"),
     PRACTICECHOOSE("A3/NameSayer/Frontend/FXML/PracticeChoose.fxml"),
-    STATISTICS("A3/NameSayer/Frontend/FXML/Stats.fxml");
+    STATISTICS("A3/NameSayer/Frontend/FXML/Stats.fxml"),
+    INFORMATION("A3/NameSayer/Frontend/FXML/Information.fxml");
 
     private URL _sceneURL;
 
