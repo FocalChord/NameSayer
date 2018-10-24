@@ -337,7 +337,7 @@ public class DatabaseController implements Initializable {
                 _userDatabase.deleteAttempt();
                 UserAttemptsTable.refresh();
             }
-            //If they delete the full name and not attempt, it will give a different alert.
+            //If they delete the full name and not attempt, it will give a different alert.f
             if (alertText.equals(DELETE_NAME)) {
                 _userDatabase.deleteName();
                 UserTable.refresh();

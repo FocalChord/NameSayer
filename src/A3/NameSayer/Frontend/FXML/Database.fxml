@@ -38,7 +38,7 @@
                <content>
                   <BorderPane prefHeight="668.0" prefWidth="1349.0">
                      <left>
-                        <TableView fx:id="DatabaseTable" onMouseClicked="#handleClickListView" prefHeight="675.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="DatabaseTable"  prefHeight="675.0" prefWidth="350.0" BorderPane.alignment="CENTER">
                            <columns>
                               <TableColumn fx:id="nameColumn" prefWidth="171.33331298828125" text="Name" />
                               <TableColumn fx:id="ratingColumn" minWidth="0.0" prefWidth="229.66668701171875" text="Rating" />
