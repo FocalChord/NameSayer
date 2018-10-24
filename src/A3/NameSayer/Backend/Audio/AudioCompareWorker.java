@@ -4,7 +4,9 @@ import A3.NameSayer.Backend.Items.DatabaseName;
 import javafx.concurrent.Task;
 import javafx.scene.control.Button;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 /**
@@ -20,6 +22,10 @@ public class AudioCompareWorker extends Task<Integer> {
     private String _recordingPath;
     private Button _button;
 
+    int targetVolDB = -15;
+    double volDiff = 0;
+
+
     public AudioCompareWorker(List<DatabaseName> listOfNames, String recordingPath, Button button) {
         _listOfNames = listOfNames;
         _recordingPath = recordingPath;
@@ -29,8 +35,28 @@ public class AudioCompareWorker extends Task<Integer> {
     @Override
     protected Integer call() throws Exception {
         for (DatabaseName db : _listOfNames) {
+            String detectVolume = String.format("ffmpeg -y -i" + " '" + db.getPathToRecording() + "'" + " -filter:a volumedetect -f null /dev/null 2>&1 | grep mean_volume");
+            Process getVol = new ProcessBuilder("bash","-c",detectVolume).start();
+            getVol.waitFor();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(getVol.getInputStream()));
+            String output = br.readLine();
+
+            String[] arr = output.split("\\s");
+            String index = arr[4];
+            double meanVol = Double.valueOf(index);
+
+            volDiff = targetVolDB - meanVol;
+
+            String normalisedCommand = String.format("ffmpeg -y -i " + "'" + db.getPathToRecording() + "'" + " -filter:a " + " \"volume=" + volDiff + "dB\" " + "'" + System.getProperty("user.dir") + "/Temp/temp.wav"  + "'"  );
+            Process normaliseVol = new ProcessBuilder("bash", "-c",normalisedCommand).start();
+            if (normaliseVol.waitFor() != 0) {
+                return 1;
+            }
+
+
             String trimCommand = String.format(
-                    "ffmpeg -y -hide_banner -i  " + "'" + db.getPathToRecording()
+                    "ffmpeg -y -hide_banner -i  " + "'" + System.getProperty("user.dir") + "/Temp/temp.wav"
                             + "'" + " -af silenceremove=0:0:0:1:5:-30dB "
                             + "'" + System.getProperty("user.dir")
                             + "/Temp/temp.wav" + "'"

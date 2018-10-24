@@ -27,7 +27,6 @@ public class AudioPlayAttemptWorker extends Task<Integer> {
                         + "/Temp/temp.wav" + "'"
         );
         pb = new ProcessBuilder("bash", "-c", trimCommand).start();
-        System.out.println(trimCommand);
         if (pb.waitFor() != 0) {
             return 1;
         }
@@ -35,7 +34,6 @@ public class AudioPlayAttemptWorker extends Task<Integer> {
 
         try {
             pb = new ProcessBuilder("bash", "-c", ffmpegCommand).start();
-            System.out.println(trimCommand);
             if (pb.waitFor() != 0) {
                 return 2;
             }

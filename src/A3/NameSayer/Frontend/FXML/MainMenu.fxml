@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.MainMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/Styles.css"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.MainMenuController">
    <top>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #34495e;" BorderPane.alignment="CENTER">
          <children>

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/Database.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.DatabaseController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1336.0" style="-fx-background-color: #808e9b#808e9b;" stylesheets="@../Styles/Database.css"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="A3.NameSayer.Frontend.Controllers.DatabaseController">
     <top>
         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #34495e;" BorderPane.alignment="CENTER">
             <children>
@@ -28,7 +34,7 @@
    <left>
       <TabPane fx:id="tabPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1335.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab fx:id="databaseTab" text="Database">
+          <Tab fx:id="databaseTab" style="-fx-pref-width: 120;" text="Database">
                <content>
                   <BorderPane prefHeight="668.0" prefWidth="1349.0">
                      <left>
@@ -75,7 +81,7 @@
                   </BorderPane>
                </content>
           </Tab>
-          <Tab fx:id="userTab" text="User">
+          <Tab fx:id="userTab" style="-fx-pref-width: 120;" text="    User">
                <content>
                   <BorderPane prefHeight="675.0" prefWidth="1349.0">
                      <center>
