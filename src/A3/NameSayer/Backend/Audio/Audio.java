@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * This class is to wrap all the workers and seperate the concerns. Hence an audio class was used to play/record
+ */
+
 public class Audio {
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 

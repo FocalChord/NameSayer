@@ -1,13 +1,16 @@
 package A3.NameSayer.Backend.Audio;
 
-import A3.NameSayer.Backend.Databases.Database;
 import A3.NameSayer.Backend.Items.DatabaseName;
 import javafx.concurrent.Task;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+/**
+ * AudioCompareWorker is a task which calls ffmpeg commands to play the database recording first and then the
+ * attempt recording
+ */
 
 public class AudioCompareWorker extends Task<Integer> {
 

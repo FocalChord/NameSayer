@@ -2,8 +2,11 @@ package A3.NameSayer.Backend.Audio;
 
 import javafx.concurrent.Task;
 import javafx.scene.control.Button;
-
 import java.io.IOException;
+
+/**
+ * AudioPlayAttemptWorker plays an attempt from the database, first trimming it and then playing
+ */
 
 public class AudioPlayAttemptWorker extends Task<Integer> {
 

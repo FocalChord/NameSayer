@@ -4,8 +4,8 @@ import javafx.scene.paint.Color;
 
 public class ColorItem {
 
-    private  String text;
-    private  Color color;
+    private String text;
+    private Color color;
     private final boolean inDatabase;
 
     public ColorItem(String text, Color color, boolean inDatabase) {

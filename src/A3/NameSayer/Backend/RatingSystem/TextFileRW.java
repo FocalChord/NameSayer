@@ -45,6 +45,10 @@ public class TextFileRW {
         return _textFileRW;
     }
 
+
+    /**
+     * This method updates the rating on a database name object and updates the .txt file
+     */
     public void changeRating(DatabaseName dbName, Rating rating) {
 
         dbName.setRating(rating);
@@ -180,6 +184,9 @@ public class TextFileRW {
         file1.renameTo(new File(newName));
     }
 
+    /**
+     * This method creates a time.txt file on start up so the stats screen can use it
+     */
     public void makeTimeFile() throws IOException{
         File f = new File("time.txt").getAbsoluteFile();
         if(!f.exists()) {
@@ -189,6 +196,9 @@ public class TextFileRW {
         }
     }
 
+    /**
+     * This method saves the time used on namesayer when the app is closed
+     */
 
     public void saveTime() {
         BufferedReader br = null;
@@ -214,6 +224,11 @@ public class TextFileRW {
 
         }
     }
+
+    /**
+     * This method creates all the required folders required in NameSayer
+     */
+
     public void makeTempFolders() throws IOException{
        String folderName = System.getProperty("user.dir") + "/Temp";
        Path path = Paths.get(folderName);

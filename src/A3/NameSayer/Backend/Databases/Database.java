@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Database {
+    // These final fields are important as they are used throughout the application
     public static final String NO_RATING = "No Rating Yet";
     public static final String GOOD_RATING = "Good";
     public static final String BAD_RATING = "Bad";
@@ -25,6 +26,7 @@ public class Database {
 
     private static Database _database;
 
+    // For rating the names
     private TextFileRW _textFileRW = TextFileRW.getInstance();
 
     private List<DatabaseName> _databaseNameList = FXCollections.observableArrayList();
@@ -55,10 +57,18 @@ public class Database {
 
     // Public Methods
 
+    /**
+     * Whenever a name is selected in the database class then it is updated in the database
+     * @param db
+     */
     public void setCurrentDatabaseName(DatabaseNameProperties db) {
         _currentlySelectedName = db;
     }
 
+    /**
+     * This method changes the rating for the selected database name object
+     * @param rating
+     */
     public void changeRating(Rating rating) {
         _textFileRW.changeRating(getDatabaseObj(_currentlySelectedName.getDBName()), rating);
 
@@ -68,16 +78,26 @@ public class Database {
                 .setValue(getDatabaseObj(_currentlySelectedName.getDBName()).getStringRating(true));
     }
 
+    /**
+     * This method returns an observable list of all the database names currently available
+     */
     public ObservableList<DatabaseNameProperties> getDatabaseTableList() {
         return _tableList;
     }
 
+    /**
+     * This method returns a filtered list of all the database names available, used in practice choose controller
+     */
     public FilteredList<String> getDatabaseNameList() {
         ObservableList<String> out = FXCollections.observableArrayList();
         _databaseNameList.stream().filter(e -> !e.getName().contains("(")).map(DatabaseName::getName).forEach(out::add);
         return new FilteredList<>(out, s -> true);
     }
 
+    /**
+     * This method returns the corresponding database object which has the same name as the input string
+     * @param databaseName
+     */
     public DatabaseName getDatabaseObj(String databaseName) {
         return _databaseNameList.stream()
                 .filter(e -> e.getName().equals(databaseName))
@@ -87,6 +107,9 @@ public class Database {
 
     // Internal Methods
 
+    /**
+     * This method returns the corresponding DatabaseNameProperties object from the currently selected database object
+     */
     private DatabaseNameProperties getCorrespondingPropertyObj() {
         return _tableList.stream()
                 .filter(e -> e.getDBName().equals(getDatabaseObj(_currentlySelectedName.getDBName()).getName()))
@@ -94,6 +117,9 @@ public class Database {
                 .orElse(null);
     }
 
+    /**
+     * THis method filters the database name list so that it is in alphabetical order
+     */
     private void filterAndSort() {
         Set<String> nameSet = new HashSet<>();
         _databaseNameList = _databaseNameList.stream()
@@ -102,6 +128,10 @@ public class Database {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * This method reads the bad/good rating .txt files and processes them through a list and updates the objects rating
+     * @param list
+     */
     private void processList(List<String> list) {
         Pattern p = Pattern.compile(": [A-Za-z]+( \\(\\d+\\))?,");
 
@@ -135,6 +165,9 @@ public class Database {
         }
     }
 
+    /**
+     * This method calls processList to process the .txt file
+     */
     private void readFromRatingFile() {
         File goodTxtFile = new File(TextFileRW.GOOD_TXT_FILE_NAME);
         File badTxtFile = new File(TextFileRW.BAD_TXT_FILE_NAME);
@@ -159,6 +192,10 @@ public class Database {
 
     }
 
+    /**
+     * This method reads the database files and produces objects based on their properties, also checks for duplicate
+     * names.
+     */
     private void initialiseDBNameList() {
         for (File f : fileList) {
             String name = extractName(f);
@@ -190,6 +227,9 @@ public class Database {
         addDuplicatesToName();
     }
 
+    /**
+     * This method gets all the duplicate names and stores them in a map and then adds them to the corresponding name.
+     */
     private void addDuplicatesToName() {
         Map<String, List<DatabaseName>> temp = _duplicateRecordings.entrySet()
                 .stream()
@@ -202,12 +242,18 @@ public class Database {
         }
     }
 
+    /**
+     * Initialises the table list required for database controller
+     */
     private void initialiseTableList() {
         for (DatabaseName db : _databaseNameList) {
             _tableList.add(new DatabaseNameProperties(db));
         }
     }
 
+    /**
+     * This method extracts a name for a long file name in the names database
+     */
     private String extractName(File file) {
         String name = file.getName().substring(0, file.getName().length() - 4); // Remove .wav
         name = name.substring(findUnderscore(name)); // Extract just the name
@@ -222,6 +268,10 @@ public class Database {
 
         return name;
     }
+
+    /**
+     * This method is used in extract name to find the right underscore position
+     */
 
     private int findUnderscore(String s) {
         int count = 0;

@@ -12,17 +12,8 @@ import java.io.IOException;
 public class SwitchStage {
 
     private static SwitchStage _switchStage;
-    private Stage _primaryStage;
 
-    public void setPrivateStage(Stage primaryStage) {
-        _primaryStage = primaryStage;
-    }
-
-    public Stage getPrivateStage() {
-        return _primaryStage;
-    }
-
-    // Putting the singleton in singleton
+    // Singleton constructor
 
     private SwitchStage() {}
     public static SwitchStage getInstance() {
@@ -33,8 +24,11 @@ public class SwitchStage {
         return _switchStage;
     }
 
-    // This switches scene to the required stage
-
+    /**
+     * This switches scene to the required stage
+     * @param sceneE this is a enum the user is required to input
+     * @throws IOException
+     */
     public void switchStage(SwitchTo sceneE) throws IOException {
         FXMLLoader loader = sceneE.getLoader();
         Parent sParent = loader.load();
