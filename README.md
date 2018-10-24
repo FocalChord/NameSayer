@@ -13,10 +13,7 @@ How to run:
 2. Open up terminal and change your directory to the same place where the jar file,database folder and ManualHTML folder is
 3. Run the application using the command "java -jar 206-Project.jar" (Excluding quotation marks)
 
-Contributors:
-Nisarag Bhatt
-
-Richard Ng
+Contributors: Nisarag Bhatt, Richard Ng
 
 Note:
 
